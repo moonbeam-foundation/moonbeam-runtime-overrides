@@ -2,6 +2,7 @@ name: Build
 
 on:
   pull_request:
+    types: [opened, edited, synchronize]
 
 jobs:
   ####### Check files and formatting #######
@@ -54,7 +55,7 @@ jobs:
       - name: Setup Rust toolchain
         run: rustup show
       - name: Format code with rustfmt
-        run: ./scripts/exec-each-runtime.sh "cargo fmt -- --check"
+        run: ./scripts/exec-each-rust-workspace.sh "cargo fmt -- --check"
 
   ####### TODO: Building and Testing rust code #######
 
@@ -85,10 +86,28 @@ jobs:
       - name: "Check runtimes tracing/47"
         if:  steps.filter.outputs.tracing_47 == 'true'
         run: |
-          EXPECTED_HASH=cat srtool-digest/moonbase-runtime-47-substitute-tracing.json | jq -r .sha256
-          ./scripts/build-tracing-runtime.sh 47
-          ACTUAL_HASH=cat srtool-digest/moonbase-runtime-47-substitute-tracing.json | jq -r .sha256
-          if [ "$EXPECTED_HASH" -ne "$ACTUAL_HASH" ]; then
-            exit 1
-          fi
-
+          ./scripts/check-tracing-runtime.sh 47
+      - name: "Check runtimes tracing/49"
+        if:  steps.filter.outputs.tracing_49 == 'true'
+        run: |
+          ./scripts/check-tracing-runtime.sh 49
+      - name: "Check runtimes tracing/52"
+        if:  steps.filter.outputs.tracing_52 == 'true'
+        run: |
+          ./scripts/check-tracing-runtime.sh 52
+      - name: "Check runtimes tracing/53"
+        if:  steps.filter.outputs.tracing_53 == 'true'
+        run: |
+          ./scripts/check-tracing-runtime.sh 53
+      - name: "Check runtimes tracing/155"
+        if:  steps.filter.outputs.tracing_155 == 'true'
+        run: |
+          ./scripts/check-tracing-runtime.sh 155
+      - name: "Check runtimes tracing/300"
+        if:  steps.filter.outputs.tracing_300 == 'true'
+        run: |
+          ./scripts/check-tracing-runtime.sh 300
+      - name: "Check runtimes tracing/400"
+        if:  steps.filter.outputs.tracing_400 == 'true'
+        run: |
+          ./scripts/check-tracing-runtime.sh 400
