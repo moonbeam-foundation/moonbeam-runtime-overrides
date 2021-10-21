@@ -34,43 +34,43 @@ pub const MANUAL_BLOCK_INITIALIZATION_RUNTIME_VERSION: u32 = 159;
 #[cfg_attr(feature = "std", derive(Serialize))]
 #[cfg_attr(feature = "std", serde(rename_all = "camelCase"))]
 pub enum CallResult {
-	Output(#[cfg_attr(feature = "std", serde(serialize_with = "bytes_0x_serialize"))] Vec<u8>),
-	// field "error"
-	Error(#[cfg_attr(feature = "std", serde(serialize_with = "string_serialize"))] Vec<u8>),
+    Output(#[cfg_attr(feature = "std", serde(serialize_with = "bytes_0x_serialize"))] Vec<u8>),
+    // field "error"
+    Error(#[cfg_attr(feature = "std", serde(serialize_with = "string_serialize"))] Vec<u8>),
 }
 
 #[derive(Clone, Eq, PartialEq, Debug, Encode, Decode)]
 #[cfg_attr(feature = "std", derive(Serialize))]
 #[cfg_attr(feature = "std", serde(rename_all = "camelCase", untagged))]
 pub enum CreateResult {
-	Error {
-		#[cfg_attr(feature = "std", serde(serialize_with = "string_serialize"))]
-		error: Vec<u8>,
-	},
-	Success {
-		#[cfg_attr(feature = "std", serde(rename = "createdContractAddressHash"))]
-		created_contract_address_hash: H160,
-		#[cfg_attr(
-			feature = "std",
-			serde(serialize_with = "bytes_0x_serialize", rename = "createdContractCode")
-		)]
-		created_contract_code: Vec<u8>,
-	},
+    Error {
+        #[cfg_attr(feature = "std", serde(serialize_with = "string_serialize"))]
+        error: Vec<u8>,
+    },
+    Success {
+        #[cfg_attr(feature = "std", serde(rename = "createdContractAddressHash"))]
+        created_contract_address_hash: H160,
+        #[cfg_attr(
+            feature = "std",
+            serde(serialize_with = "bytes_0x_serialize", rename = "createdContractCode")
+        )]
+        created_contract_code: Vec<u8>,
+    },
 }
 
 #[derive(Clone, Copy, Eq, PartialEq, Debug, Encode, Decode)]
 #[cfg_attr(feature = "std", derive(Serialize))]
 #[cfg_attr(feature = "std", serde(rename_all = "lowercase"))]
 pub enum CallType {
-	Call,
-	CallCode,
-	DelegateCall,
-	StaticCall,
+    Call,
+    CallCode,
+    DelegateCall,
+    StaticCall,
 }
 
 #[derive(Clone, Copy, Eq, PartialEq, Debug, Encode, Decode)]
 #[cfg_attr(feature = "std", derive(Serialize))]
 #[cfg_attr(feature = "std", serde(rename_all = "lowercase"))]
 pub enum CreateType {
-	Create,
+    Create,
 }
