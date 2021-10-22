@@ -11,3 +11,5 @@ panic = 'unwind'
 evm = { git = "https://github.com/purestake/evm", branch = "runtime-substitutes-0.27.1"}
 evm-runtime = { git = "https://github.com/purestake/evm", branch = "runtime-substitutes-0.27.1" }
 evm-gasometer = { git = "https://github.com/purestake/evm", branch = "runtime-substitutes-0.27.1" }
+
+# Temporary comment to test CI
