@@ -7,7 +7,7 @@ CHAINS=(
 
 VERSION=$1
 
-#./script/build-tracing-runtime.sh $VERSION
+./scripts/build-tracing-runtime.sh $VERSION
 
 CMD="git diff --name-only"
 
