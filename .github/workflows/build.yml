@@ -59,55 +59,22 @@ jobs:
 
   ####### TODO: Building and Testing rust code #######
 
-  ####### Verifying runtimes wasm blobs #######
-  check-runtimes-wasm-blobs:
-    name: "Check runtimes wasm blobs"
+  ####### Verifying tracing runtimes wasm blobs #######
+  check-tracing-runtime-wasm:
+    name: "Check tracing runtime wasm"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        spec_version: ["47", "49", "52", "53", "155", "300", "400"]
     steps:
       - uses: actions/checkout@v2
       - uses: dorny/paths-filter@v2
         id: filter
         with:
           filters: |
-            tracing_47:
-              - 'tracing/47/**'
-            tracing_49:
-              - 'tracing/49/**'
-            tracing_52:
-              - 'tracing/52/**'
-            tracing_53:
-              - 'tracing/53/**'
-            tracing_155:
-              - 'tracing/155/**'
-            tracing_300:
-              - 'tracing/300/**'
-            tracing_400:
-              - 'tracing/400/**'
-      - name: "Check runtimes tracing/47"
-        if:  steps.filter.outputs.tracing_47 == 'true'
+            edited:
+              - 'tracing/${{ matrix.spec_version }}/**'
+      - name: "Check runtime tracing/${{ matrix.spec_version }}"
+        if:  steps.filter.outputs.edited == 'true'
         run: |
-          ./scripts/check-tracing-runtime.sh 47
-      - name: "Check runtimes tracing/49"
-        if:  steps.filter.outputs.tracing_49 == 'true'
-        run: |
-          ./scripts/check-tracing-runtime.sh 49
-      - name: "Check runtimes tracing/52"
-        if:  steps.filter.outputs.tracing_52 == 'true'
-        run: |
-          ./scripts/check-tracing-runtime.sh 52
-      - name: "Check runtimes tracing/53"
-        if:  steps.filter.outputs.tracing_53 == 'true'
-        run: |
-          ./scripts/check-tracing-runtime.sh 53
-      - name: "Check runtimes tracing/155"
-        if:  steps.filter.outputs.tracing_155 == 'true'
-        run: |
-          ./scripts/check-tracing-runtime.sh 155
-      - name: "Check runtimes tracing/300"
-        if:  steps.filter.outputs.tracing_300 == 'true'
-        run: |
-          ./scripts/check-tracing-runtime.sh 300
-      - name: "Check runtimes tracing/400"
-        if:  steps.filter.outputs.tracing_400 == 'true'
-        run: |
-          ./scripts/check-tracing-runtime.sh 400
+          ./scripts/check-tracing-runtime.sh ${{ matrix.spec_version }}
