@@ -34,13 +34,13 @@ use sp_std::marker::PhantomData;
 
 use frame_support::traits::Currency;
 type BalanceOf<Runtime> = <<Runtime as parachain_staking::Config>::Currency as Currency<
-    <Runtime as frame_system::Config>::AccountId,
+	<Runtime as frame_system::Config>::AccountId,
 >>::Balance;
 
 type RewardBalanceOf<Runtime> =
-    <<Runtime as pallet_crowdloan_rewards::Config>::RewardCurrency as Currency<
-        <Runtime as frame_system::Config>::AccountId,
-    >>::Balance;
+	<<Runtime as pallet_crowdloan_rewards::Config>::RewardCurrency as Currency<
+		<Runtime as frame_system::Config>::AccountId,
+	>>::Balance;
 
 /// The PrecompileSet installed in the Moonbase runtime.
 /// We include the nine Istanbul precompiles
@@ -51,15 +51,15 @@ pub struct MoonbasePrecompiles<R>(PhantomData<R>);
 
 impl<R: frame_system::Config> MoonbasePrecompiles<R>
 where
-    R::AccountId: From<H160>,
+	R::AccountId: From<H160>,
 {
-    /// Return all addresses that contain precompiles. This can be used to populate dummy code
-    /// under the precompile.
-    pub fn used_addresses() -> impl Iterator<Item = R::AccountId> {
-        sp_std::vec![1, 2, 3, 4, 5, 6, 7, 8, 1024, 1025, 1026, 2048, 2049]
-            .into_iter()
-            .map(|x| hash(x).into())
-    }
+	/// Return all addresses that contain precompiles. This can be used to populate dummy code
+	/// under the precompile.
+	pub fn used_addresses() -> impl Iterator<Item = R::AccountId> {
+		sp_std::vec![1, 2, 3, 4, 5, 6, 7, 8, 1024, 1025, 1026, 2048, 2049]
+			.into_iter()
+			.map(|x| hash(x).into())
+	}
 }
 
 /// The following distribution has been decided for the precompiles
@@ -68,46 +68,46 @@ where
 /// 2048-4095 Moonbeam specific precompiles
 impl<R> PrecompileSet for MoonbasePrecompiles<R>
 where
-    R::Call: Dispatchable<PostInfo = PostDispatchInfo> + GetDispatchInfo + Decode,
-    <R::Call as Dispatchable>::Origin: From<Option<R::AccountId>>,
-    R: parachain_staking::Config + pallet_evm::Config + pallet_crowdloan_rewards::Config,
-    R::AccountId: From<H160>,
-    BalanceOf<R>: Debug + precompile_utils::EvmData,
-    RewardBalanceOf<R>: TryFrom<sp_core::U256> + Debug,
-    R::Call: From<parachain_staking::Call<R>> + From<pallet_crowdloan_rewards::Call<R>>,
+	R::Call: Dispatchable<PostInfo = PostDispatchInfo> + GetDispatchInfo + Decode,
+	<R::Call as Dispatchable>::Origin: From<Option<R::AccountId>>,
+	R: parachain_staking::Config + pallet_evm::Config + pallet_crowdloan_rewards::Config,
+	R::AccountId: From<H160>,
+	BalanceOf<R>: Debug + precompile_utils::EvmData,
+	RewardBalanceOf<R>: TryFrom<sp_core::U256> + Debug,
+	R::Call: From<parachain_staking::Call<R>> + From<pallet_crowdloan_rewards::Call<R>>,
 {
-    fn execute(
-        address: H160,
-        input: &[u8],
-        target_gas: Option<u64>,
-        context: &Context,
-    ) -> Option<Result<PrecompileOutput, ExitError>> {
-        match address {
-            // Ethereum precompiles :
-            a if a == hash(1) => Some(ECRecover::execute(input, target_gas, context)),
-            a if a == hash(2) => Some(Sha256::execute(input, target_gas, context)),
-            a if a == hash(3) => Some(Ripemd160::execute(input, target_gas, context)),
-            a if a == hash(4) => Some(Identity::execute(input, target_gas, context)),
-            a if a == hash(5) => Some(Modexp::execute(input, target_gas, context)),
-            a if a == hash(6) => Some(Bn128Add::execute(input, target_gas, context)),
-            a if a == hash(7) => Some(Bn128Mul::execute(input, target_gas, context)),
-            a if a == hash(8) => Some(Bn128Pairing::execute(input, target_gas, context)),
-            // Non-Moonbeam specific nor Ethereum precompiles :
-            a if a == hash(1024) => Some(Sha3FIPS256::execute(input, target_gas, context)),
-            a if a == hash(1025) => Some(Dispatch::<R>::execute(input, target_gas, context)),
-            a if a == hash(1026) => Some(ECRecoverPublicKey::execute(input, target_gas, context)),
-            // Moonbeam specific precompiles :
-            a if a == hash(2048) => Some(ParachainStakingWrapper::<R>::execute(
-                input, target_gas, context,
-            )),
-            a if a == hash(2049) => Some(CrowdloanRewardsWrapper::<R>::execute(
-                input, target_gas, context,
-            )),
-            _ => None,
-        }
-    }
+	fn execute(
+		address: H160,
+		input: &[u8],
+		target_gas: Option<u64>,
+		context: &Context,
+	) -> Option<Result<PrecompileOutput, ExitError>> {
+		match address {
+			// Ethereum precompiles :
+			a if a == hash(1) => Some(ECRecover::execute(input, target_gas, context)),
+			a if a == hash(2) => Some(Sha256::execute(input, target_gas, context)),
+			a if a == hash(3) => Some(Ripemd160::execute(input, target_gas, context)),
+			a if a == hash(4) => Some(Identity::execute(input, target_gas, context)),
+			a if a == hash(5) => Some(Modexp::execute(input, target_gas, context)),
+			a if a == hash(6) => Some(Bn128Add::execute(input, target_gas, context)),
+			a if a == hash(7) => Some(Bn128Mul::execute(input, target_gas, context)),
+			a if a == hash(8) => Some(Bn128Pairing::execute(input, target_gas, context)),
+			// Non-Moonbeam specific nor Ethereum precompiles :
+			a if a == hash(1024) => Some(Sha3FIPS256::execute(input, target_gas, context)),
+			a if a == hash(1025) => Some(Dispatch::<R>::execute(input, target_gas, context)),
+			a if a == hash(1026) => Some(ECRecoverPublicKey::execute(input, target_gas, context)),
+			// Moonbeam specific precompiles :
+			a if a == hash(2048) => Some(ParachainStakingWrapper::<R>::execute(
+				input, target_gas, context,
+			)),
+			a if a == hash(2049) => Some(CrowdloanRewardsWrapper::<R>::execute(
+				input, target_gas, context,
+			)),
+			_ => None,
+		}
+	}
 }
 
 fn hash(a: u64) -> H160 {
-    H160::from_low_u64_be(a)
+	H160::from_low_u64_be(a)
 }
