@@ -3,3 +3,6 @@
 
 # Ignore srtool.out files
 **/srtool.out
+
+# Ignore build directory populated by CI
+build
