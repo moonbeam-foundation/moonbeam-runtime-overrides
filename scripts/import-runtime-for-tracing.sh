@@ -15,9 +15,12 @@ CRATES_PATHS=(
   precompiles\\/parachain-staking
   precompiles\\/pallet-democracy
   pallets\\/maintenance-mode
+  pallets\\/migrations
   pallets\\/author-mapping
   precompiles\\/utils
   precompiles\\/balances-erc20
+  precompiles\\/assets-erc20
+  precompiles\\/xtokens
   precompiles\\/crowdloan-rewards
   primitives\\/rpc\\/txpool
 )
@@ -53,15 +56,17 @@ cp tracing/Cargo.toml.template tracing/$SPEC_VERSION/Cargo.toml
 EVM_BRANCH="runtime-$SPEC_VERSION-substitute-tracing"
 sed -i -e "s/EVM_BRANCH/$EVM_BRANCH/g" tracing/$SPEC_VERSION/Cargo.toml
 
-# For each runtime
+# Enable evm-tracing feature
+echo "Enable evm-tracing feature..."
 for CHAIN in ${CHAINS[@]}; do
-  # Enable evm-tracing feature
-  echo "$CHAIN: enable evm-tracing feature..."
   sed -i -e 's/\["std"\]/\["std", "evm-tracing"\]/g' tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
+done
 
-  # Replace path dependencies by git dependencies
-  echo "$CHAIN: replace path dependencies by git dependencies..."
-  for CRATE_PATH in ${CRATES_PATHS[@]}; do
+# Replace path dependencies by git dependencies
+echo "Replace path dependencies by git dependencies..."
+for CRATE_PATH in ${CRATES_PATHS[@]}; do
+  sed -i -e "s/path = \"..\/..\/$CRATE_PATH\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"runtime-$SPEC_VERSION\"/g" tracing/$SPEC_VERSION/runtime/common/Cargo.toml
+  for CHAIN in ${CHAINS[@]}; do
     sed -i -e "s/path = \"..\/..\/$CRATE_PATH\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"runtime-$SPEC_VERSION\"/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
   done
 done
