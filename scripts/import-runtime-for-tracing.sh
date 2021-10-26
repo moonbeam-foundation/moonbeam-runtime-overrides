@@ -7,13 +7,17 @@ CHAINS=(
 
 CRATES_PATHS=(
   primitives\\/account\\/
+  primitives\\/xcm\\/
   core-primitives
   pallets\\/ethereum-chain-id
   pallets\\/parachain-staking
+  pallets\\/asset-manager
   precompiles\\/parachain-staking
+  precompiles\\/pallet-democracy
   pallets\\/maintenance-mode
   pallets\\/author-mapping
   precompiles\\/utils
+  precompiles\\/balances-erc20
   precompiles\\/crowdloan-rewards
   primitives\\/rpc\\/txpool
 )
