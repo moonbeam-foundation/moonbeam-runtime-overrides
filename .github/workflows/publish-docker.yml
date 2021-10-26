@@ -53,8 +53,8 @@ jobs:
         run: |
           mkdir build
           CLIENT_TAG=${{ github.event.inputs.client_tag }}
-          CLIENT_IMAGE="purestake/moonbeam:$CLIENT_IMAGE"
-          docker create -ti --name dummy $CLIENT_TAG bash
+          CLIENT_IMAGE="purestake/moonbeam:$CLIENT_TAG"
+          docker create -ti --name dummy $CLIENT_IMAGE bash
           docker cp dummy:/moonbeam/moonbeam build/moonbeam
           docker rm -f dummy
       - name: Set up QEMU
