@@ -1,0 +1,13 @@
+[workspace]
+members = [
+    'runtime/moonriver',
+    'runtime/moonbase',
+]
+
+[profile.release]
+panic = 'unwind'
+
+[patch.crates-io]
+evm = { git = "https://github.com/purestake/evm", branch = "runtime-700-substitute-tracing"}
+evm-runtime = { git = "https://github.com/purestake/evm", branch = "runtime-700-substitute-tracing" }
+evm-gasometer = { git = "https://github.com/purestake/evm", branch = "runtime-700-substitute-tracing" }
