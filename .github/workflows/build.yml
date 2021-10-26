@@ -87,9 +87,9 @@ jobs:
       - name: Format code with rustfmt
         if: steps.filter.outputs.edited == 'true'
         run: cd tracing/${{ matrix.spec_version }} && cargo fmt -- --check
-      - name: Build and run tests
-        if: steps.filter.outputs.edited == 'true'
-        run: cd tracing/${{ matrix.spec_version }} && cargo test --release --all
+      #- name: Build and run tests
+      #  if: steps.filter.outputs.edited == 'true'
+      #  run: cd tracing/${{ matrix.spec_version }} && cargo test --release --all
       - name: "Check wasm blob"
         if:  steps.filter.outputs.edited == 'true'
         run: |
