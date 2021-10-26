@@ -6,3 +6,6 @@
 
 # Ignore build directory populated by CI
 build
+
+# Ignore temporary files
+tmp
