@@ -57,6 +57,18 @@ jobs:
           docker create -ti --name dummy $CLIENT_IMAGE bash
           docker cp dummy:/moonbeam/moonbeam build/moonbeam
           docker rm -f dummy
+      - name: Add moonbase runtimes overrides
+        run: |
+          mkdir -p build/moonbase-substitutes-tracing
+          cp wasm/moonbase-* build/moonbase-substitutes-tracing/
+      - name: Add moonriver runtimes overrides
+        run: |
+          mkdir -p build/moonriver-substitutes-tracing
+          cp wasm/moonriver-* build/moonriver-substitutes-tracing/
+      - name: Add moonbeam runtimes overrides
+        run: |
+          mkdir -p build/moonbeam-substitutes-tracing
+          cp wasm/moonbeam-* build/moonbeam-substitutes-tracing/
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx

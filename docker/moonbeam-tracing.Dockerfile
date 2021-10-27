@@ -17,10 +17,10 @@ RUN useradd -m -u 1000 -U -s /bin/sh -d /moonbeam moonbeam && \
 USER moonbeam
 
 COPY --chown=moonbeam build/moonbeam /moonbeam/moonbeam
-COPY --chown=moonbeam wasm /moonbeam/substitutes
-COPY --chown=moonbeam docker/moonbeam-tracing-entrypoint.sh /moonbeam/entrypoint
-RUN chmod uog+x /moonbeam/moonbeam && \
-	chmod uog+x /moonbeam/entrypoint 
+COPY --chown=moonbeam build/moonbase-substitutes-tracing /moonbeam/moonbase-substitutes-tracing
+COPY --chown=moonbeam build/moonriver-substitutes-tracing /moonbeam/moonriver-substitutes-tracing
+RUN chmod uog+x /moonbeam/moonbeam
+
 # 30333 for parachain p2p 
 # 30334 for relaychain p2p 
 # 9933 for RPC call
@@ -30,4 +30,4 @@ EXPOSE 30333 30334 9933 9944 9615
 
 VOLUME ["/data"]
 
-ENTRYPOINT ["/moonbeam/entrypoint"]
+ENTRYPOINT ["/moonbeam/moonbeam"]
