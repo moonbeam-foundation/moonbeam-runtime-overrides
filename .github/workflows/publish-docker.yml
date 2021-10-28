@@ -46,7 +46,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=purestake/moonbeam-tracing-tmp
+          DOCKER_IMAGE=purestake/moonbeam-tracing
           DOCKER_TAG="${DOCKER_IMAGE}:${{ github.event.inputs.client_tag }}-${{ steps.get-last-spec-version.outputs.last_spec_version }}-${{ steps.get-sha.outputs.sha4 }}"
           DOCKER_LATEST_TAG="${DOCKER_IMAGE}:${{ github.event.inputs.client_tag }}-${{ steps.get-last-spec-version.outputs.last_spec_version }}-latest"
           echo ::set-output name=docker_tag::${DOCKER_TAG}
