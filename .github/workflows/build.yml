@@ -87,13 +87,15 @@ jobs:
           filters: |
             edited:
               - 'tracing/${{ matrix.spec_version }}/**'
+            shared:
+              - 'tracing/shared'
       - name: Format code with rustfmt
-        if: steps.filter.outputs.edited == 'true'
+        if: steps.filter.outputs.edited == 'true' || steps.filter.outputs.shared == 'true'
         run: cd tracing/${{ matrix.spec_version }} && cargo fmt -- --check
       #- name: Build and run tests
-      #  if: steps.filter.outputs.edited == 'true'
+      #  if: steps.filter.outputs.edited == 'true' || steps.filter.outputs.shared == 'true'
       #  run: cd tracing/${{ matrix.spec_version }} && cargo test --release --all
       - name: "Check wasm blob"
-        if:  steps.filter.outputs.edited == 'true'
+        if:  steps.filter.outputs.edited == 'true' || steps.filter.outputs.shared == 'true'
         run: |
           ./scripts/check-tracing-runtime.sh ${{ matrix.spec_version }}
