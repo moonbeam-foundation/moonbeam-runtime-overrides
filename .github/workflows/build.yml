@@ -18,10 +18,13 @@ jobs:
       - name: List spec versions
         id: list-versions
         run: |
+          INTEGER_REGEX='^[0-9]+$'
           cd tracing
           for D in *; do
-              if [ -d "${D}" ]; then
-                LIST="$LIST, \"$D\""
+              if [[ "${D}" =~ $INTEGER_REGEX ]] ; then
+                if [ -d "${D}" ]; then
+                  LIST="$LIST, \"$D\""
+                fi
               fi
           done
           echo ::set-output name=spec_versions::[${LIST:2}]
