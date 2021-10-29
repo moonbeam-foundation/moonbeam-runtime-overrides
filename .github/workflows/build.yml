@@ -7,6 +7,7 @@ on:
 jobs:
 
   list-spec-versions:
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     outputs:
       spec_versions: ${{ steps.list-versions.outputs.spec_versions }}
@@ -18,10 +19,13 @@ jobs:
       - name: List spec versions
         id: list-versions
         run: |
+          INTEGER_REGEX='^[0-9]+$'
           cd tracing
           for D in *; do
-              if [ -d "${D}" ]; then
-                LIST="$LIST, \"$D\""
+              if [[ "${D}" =~ $INTEGER_REGEX ]] ; then
+                if [ -d "${D}" ]; then
+                  LIST="$LIST, \"$D\""
+                fi
               fi
           done
           echo ::set-output name=spec_versions::[${LIST:2}]
@@ -68,6 +72,7 @@ jobs:
 
   check-tracing-runtime:
     name: "Check tracing runtime"
+    if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     needs: ["list-spec-versions"]
     strategy:
@@ -84,13 +89,15 @@ jobs:
           filters: |
             edited:
               - 'tracing/${{ matrix.spec_version }}/**'
+            shared:
+              - 'tracing/shared'
       - name: Format code with rustfmt
-        if: steps.filter.outputs.edited == 'true'
+        if: steps.filter.outputs.edited == 'true' || steps.filter.outputs.shared == 'true'
         run: cd tracing/${{ matrix.spec_version }} && cargo fmt -- --check
       #- name: Build and run tests
-      #  if: steps.filter.outputs.edited == 'true'
+      #  if: steps.filter.outputs.edited == 'true' || steps.filter.outputs.shared == 'true'
       #  run: cd tracing/${{ matrix.spec_version }} && cargo test --release --all
       - name: "Check wasm blob"
-        if:  steps.filter.outputs.edited == 'true'
+        if:  steps.filter.outputs.edited == 'true' || steps.filter.outputs.shared == 'true'
         run: |
           ./scripts/check-tracing-runtime.sh ${{ matrix.spec_version }}

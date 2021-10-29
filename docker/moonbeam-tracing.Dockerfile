@@ -12,7 +12,6 @@ LABEL description="Binary for Moonbeam Collator"
 
 RUN useradd -m -u 1000 -U -s /bin/sh -d /moonbeam moonbeam && \
 	mkdir -p /moonbeam/.local/share && \
-	mkdir -p /moonbeam/substitutes && \
 	mkdir /data && \
 	chown -R moonbeam:moonbeam /data && \
 	ln -s /data /moonbeam/.local/share/moonbeam && \
