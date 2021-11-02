@@ -6,23 +6,27 @@ CHAINS=(
 )
 
 CRATES_PATHS=(
-  primitives\\/account\\/
-  primitives\\/xcm\\/
   core-primitives
-  pallets\\/ethereum-chain-id
-  pallets\\/parachain-staking
   pallets\\/asset-manager
-  precompiles\\/parachain-staking
-  precompiles\\/pallet-democracy
+  pallets\\/author-mapping
+  pallets\\/ethereum-chain-id
   pallets\\/maintenance-mode
   pallets\\/migrations
-  pallets\\/author-mapping
-  precompiles\\/utils
-  precompiles\\/balances-erc20
+  pallets\\/parachain-staking
+  pallets\\/proxy-genesis-companion
+  pallets\\/xcm-transactor
   precompiles\\/assets-erc20
-  precompiles\\/xtokens
+  precompiles\\/balances-erc20
   precompiles\\/crowdloan-rewards
+  precompiles\\/parachain-staking
+  precompiles\\/pallet-democracy
+  precompiles\\/relay-encoder
+  precompiles\\/utils
+  precompiles\\/xcm_transactor
+  precompiles\\/xtokens
+  primitives\\/account\\/
   primitives\\/rpc\\/txpool
+  primitives\\/xcm\\/
 )
 
 SPEC_VERSION=$1
