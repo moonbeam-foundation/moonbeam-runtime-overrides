@@ -18,7 +18,7 @@ sp-core = { default-features = false, git = "https://github.com/paritytech/subst
 sp-std = { default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.3" }
 sp-io = { default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.3" }
 sp-runtime = { default-features = false, git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.3" }
-evm-tracing-events = { path = "../../primitives/rpc/evm-tracing-events", default-features = false }
+evm-tracing-events = { path = "../../../shared/primitives/rpc/evm-tracing-events", default-features = false, features = ["evm-tracing"] }
 moonbeam-primitives-ext = { path = "../../primitives/ext", default-features = false }
 ethereum-types = { version = "0.11.0", default-features = false }
 

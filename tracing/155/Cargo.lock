@@ -1420,7 +1420,6 @@ dependencies = [
  "evm",
  "evm-gasometer",
  "evm-runtime",
- "moonbeam-rpc-primitives-debug",
  "parity-scale-codec",
 ]
 

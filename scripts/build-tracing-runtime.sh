@@ -12,6 +12,10 @@ docker pull $SRTOOL_IMAGE
 VERSION=$1
 cd tracing/${VERSION}
 
+# Get copy of shared code and move all dependencies to shared
+find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/shared/shared/g' {} \;
+cp -r ../shared shared
+
 for CHAIN in ${CHAINS[@]}; do
   RUNTIME_DIR="runtime/$CHAIN"
   if [ -d "$RUNTIME_DIR" ]; then
@@ -34,5 +38,9 @@ for CHAIN in ${CHAINS[@]}; do
     echo "Finished building $CHAIN-$VERSION-substitute-tracing"
   fi
 done
+
+# Remove copy of shared code and restore all dependencies to shared
+rm -rf shared
+find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/shared/..\/..\/shared/g' {} \;
 
 cd ../..

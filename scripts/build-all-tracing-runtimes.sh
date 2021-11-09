@@ -9,8 +9,14 @@ SRTOOL_IMAGE="paritytech/srtool:1.53.0"
 
 docker pull $SRTOOL_IMAGE
 
-for TRACING_VERSION in tracing/*; do
+cd tracing
+
+for TRACING_VERSION in *; do
   if [ -d "${TRACING_VERSION}" ]; then
-    ./script/build-runtime.sh $TRACING_VERSION
+    cd ..
+    ./scripts/build-tracing-runtime.sh $TRACING_VERSION
+    cd tracing
   fi
 done
+
+cd ..
