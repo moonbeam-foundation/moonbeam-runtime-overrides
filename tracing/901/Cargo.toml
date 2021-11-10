@@ -1,6 +1,5 @@
 [workspace]
 members = [
-    'runtime/moonriver',
     'runtime/moonbase',
 ]
 
