@@ -13,7 +13,7 @@ VERSION=$1
 cd tracing/${VERSION}
 
 # Get copy of shared code and move all dependencies to shared
-find . -prune -o  -name '*.toml' -not -path "*/target/*" -exec sed -i 's/..\/shared/shared/g' {} \;
+find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/shared/shared/g' {} \;
 cp -r ../shared shared
 
 for CHAIN in ${CHAINS[@]}; do
@@ -41,6 +41,6 @@ done
 
 # Remove copy of shared code and restore all dependencies to shared
 rm -rf shared
-find . -prune -o  -name '*.toml' -not -path "*/target/*" -exec sed -i 's/..\/shared/..\/..\/shared/g' {} \;
+find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/shared/..\/..\/shared/g' {} \;
 
 cd ../..
