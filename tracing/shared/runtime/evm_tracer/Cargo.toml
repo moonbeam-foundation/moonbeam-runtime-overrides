@@ -1,0 +1,51 @@
+[package]
+name = "moonbeam-evm-tracer"
+authors = [ "PureStake" ]
+edition = "2018"
+homepage = "https://moonbeam.network"
+license = "GPL-3.0-only"
+repository = "https://github.com/PureStake/moonbeam/"
+version = "0.1.0"
+
+[dependencies]
+# In those shared code the branch is irrelevant as long as revers to a rust2018 workspace.
+# Each version of the runtime will patch the Subtrate and Frontier dependencies to the correct
+# git repo and branch. Since cargo don't want to patch with the same repo url, we use a dummy fork
+# not used in the runtimes.
+
+# Moonbeam
+evm-tracing-events = { path = "../../primitives/rpc/evm-tracing-events", default-features = false, features = [ "evm-tracing" ] }
+moonbeam-primitives-ext = { path = "../../primitives/ext", default-features = false }
+
+# Substrate
+codec = { package = "parity-scale-codec", version = "*", default-features = false }
+sp-core = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+sp-io = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+sp-runtime = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+sp-std = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+
+# Frontier
+ethereum-types = { version = "*", default-features = false }
+evm = { version = "*", default-features = false, features = [ "with-codec" ] }
+evm-gasometer = { version = "*", default-features = false }
+evm-runtime = { version = "*", default-features = false }
+fp-evm = { git = "https://github.com/nanocryk/frontier", default-features = false }
+pallet-evm = { git = "https://github.com/nanocryk/frontier", default-features = false }
+
+[features]
+default = [ "std" ]
+std = [
+	"codec/std",
+	"ethereum-types/std",
+	"evm-gasometer/std",
+	"evm-runtime/std",
+	"evm-tracing-events/std",
+	"evm/std",
+	"evm/with-serde",
+	"fp-evm/std",
+	"moonbeam-primitives-ext/std",
+	"pallet-evm/std",
+	"sp-core/std",
+	"sp-runtime/std",
+	"sp-std/std",
+]

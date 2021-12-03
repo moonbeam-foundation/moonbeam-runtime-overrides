@@ -1,0 +1,48 @@
+[package]
+name = "moonbeam-rpc-primitives-debug"
+authors = [ "PureStake" ]
+edition = "2018"
+homepage = "https://moonbeam.network"
+license = "GPL-3.0-only"
+repository = "https://github.com/PureStake/moonbeam/"
+version = "0.1.0"
+
+[dependencies]
+# In those shared code the branch is irrelevant as long as revers to a rust2018 workspace.
+# Each version of the runtime will patch the Subtrate and Frontier dependencies to the correct
+# git repo and branch. Since cargo don't want to patch with the same repo url, we use a dummy fork
+# not used in the runtimes.
+
+environmental = { version = "1.1.2", default-features = false }
+ethereum = { version = "*", default-features = false, features = [ "with-codec" ] }
+ethereum-types = { version = "*", default-features = false }
+hex = { version = "0.4", optional = true, features = [ "serde" ] }
+serde = { version = "1.0", optional = true, features = [ "derive" ] }
+serde_json = { version = "1.0", optional = true }
+
+# Substrate
+codec = { package = "parity-scale-codec", version = "*", default-features = false }
+sp-api = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+sp-core = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+sp-io = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+sp-runtime = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+sp-std = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+
+[features]
+default = [ "std" ]
+std = [
+	"codec/std",
+	"environmental/std",
+	"ethereum-types/std",
+	"ethereum/std",
+	"hex",
+	"serde",
+	"serde_json",
+	"sp-api/std",
+	"sp-core/std",
+	"sp-io/std",
+	"sp-runtime/std",
+	"sp-std/std",
+]
+
+transaction_v0 = []

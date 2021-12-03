@@ -8,11 +8,18 @@ license = 'GPL-3.0-only'
 repository = 'https://github.com/PureStake/moonbeam/'
 
 [dependencies]
-codec = { package = "parity-scale-codec", version = "2.2", default-features = false }
+# In those shared code the branch is irrelevant as long as revers to a rust2018 workspace.
+# Each version of the runtime will patch the Subtrate and Frontier dependencies to the correct
+# git repo and branch. Since cargo don't want to patch with the same repo url, we use a dummy fork
+# not used in the runtimes.
+
+codec = { package = "parity-scale-codec", version = "*", default-features = false }
+sp-runtime-interface = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+
 ethereum = { version = "*", default-features = false, features = ["with-codec"] }
 ethereum-types = { version = "*", default-features = false }
 
-environmental = { version = "1.1.2", default-features = false }
+environmental = { version = "*", default-features = false }
 
 evm = { version = "*", default-features = false, features = ["with-codec"] }
 evm-runtime = { version = "*", default-features = false }
