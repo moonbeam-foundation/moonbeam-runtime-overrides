@@ -1,14 +1,29 @@
 [workspace]
 members = [
-    'runtime/moonriver',
-    'runtime/moonbase',
+	"runtime/moonbase",
+	"runtime/moonriver",
 ]
 
 [profile.release]
-panic = 'unwind'
+panic = "unwind"
 
 [patch.crates-io]
-evm = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-v0.9.11"}
-evm-runtime = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-v0.9.11" }
-evm-gasometer = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-v0.9.11" }
 ethereum = { git = "https://github.com/purestake/ethereum", branch = "joshy-scale-info" }
+evm = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-v0.9.11" }
+evm-gasometer = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-v0.9.11" }
+evm-runtime = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-v0.9.11" }
+
+# Overrides to set Frontier version for code shared across runtime versions.
+[patch."https://github.com/nanocryk/frontier"]
+fp-evm = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.12" }
+pallet-evm = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.12" }
+
+# Overrides to set Substrate version for code shared across runtime versions.
+[patch."https://github.com/nanocryk/substrate-1"]
+sp-api = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.12" }
+sp-core = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.12" }
+sp-externalities = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.12" }
+sp-io = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.12" }
+sp-runtime = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.12" }
+sp-runtime-interface = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.12" }
+sp-std = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.12" }
