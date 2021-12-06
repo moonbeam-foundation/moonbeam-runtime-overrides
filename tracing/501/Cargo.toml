@@ -11,3 +11,18 @@ panic = 'unwind'
 evm = { git = "https://github.com/purestake/evm", branch = "runtime-501-substitute-tracing"}
 evm-runtime = { git = "https://github.com/purestake/evm", branch = "runtime-501-substitute-tracing" }
 evm-gasometer = { git = "https://github.com/purestake/evm", branch = "runtime-501-substitute-tracing" }
+
+# Overrides to set Frontier version for code shared across runtime versions.
+[patch."https://github.com/nanocryk/frontier"]
+fp-evm = { git = "https://github.com/purestake/frontier", branch = "moonriver-phase-four" }
+pallet-evm = { git = "https://github.com/purestake/frontier", branch = "moonriver-phase-four" }
+
+# Overrides to set Substrate version for code shared across runtime versions.
+[patch."https://github.com/nanocryk/substrate-1"]
+sp-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.8" }
+sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.8" }
+sp-externalities = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.8" }
+sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.8" }
+sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.8" }
+sp-runtime-interface = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.8" }
+sp-std = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.8" }
