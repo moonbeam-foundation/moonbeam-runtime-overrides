@@ -12,3 +12,7 @@ panic = 'unwind'
 evm = { git = "https://github.com/purestake/evm", branch = "runtime-substitutes-0.27.1"}
 evm-runtime = { git = "https://github.com/purestake/evm", branch = "runtime-substitutes-0.27.1" }
 evm-gasometer = { git = "https://github.com/purestake/evm", branch = "runtime-substitutes-0.27.1" }
+
+# Overrides to set Substrate version for code shared across runtime versions.
+[patch."https://github.com/nanocryk/substrate-1"]
+sp-runtime-interface = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.6" }
