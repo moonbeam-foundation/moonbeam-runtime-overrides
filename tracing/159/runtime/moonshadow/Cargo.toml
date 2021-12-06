@@ -18,14 +18,14 @@ sha3 = { version = "0.8", default-features = false, optional = true }
 runtime-common = { path = "../common", default-features = false }
 
 pallet-author-inherent = { git = "https://github.com/purestake/cumulus", branch = "joshy-np098", default-features = false }
-account = { path = "../../primitives/account/", default-features = false }
-moonbeam-core-primitives = { path = "../../core-primitives", default-features = false }
-pallet-ethereum-chain-id = { path = "../../pallets/ethereum-chain-id", default-features = false }
-parachain-staking = { path = "../../pallets/parachain-staking", default-features = false }
-parachain-staking-precompiles = { path = "../../precompiles/parachain-staking", default-features = false }
+account = { git = "https://github.com/purestake/moonbeam", rev = "runtime-159", default-features = false }
+moonbeam-core-primitives = { git = "https://github.com/purestake/moonbeam", rev = "runtime-159", default-features = false }
+pallet-ethereum-chain-id = { git = "https://github.com/purestake/moonbeam", rev = "runtime-159", default-features = false }
+parachain-staking = { git = "https://github.com/purestake/moonbeam", rev = "runtime-159", default-features = false }
+parachain-staking-precompiles = { git = "https://github.com/purestake/moonbeam", rev = "runtime-159", default-features = false }
 pallet-author-slot-filter = { git = "https://github.com/purestake/cumulus", branch = "joshy-np098", default-features = false }
 nimbus-primitives = { git = "https://github.com/purestake/cumulus", branch = "joshy-np098", default-features = false }
-pallet-author-mapping = { path = "../../pallets/author-mapping", default-features = false }
+pallet-author-mapping = { git = "https://github.com/purestake/moonbeam", rev = "runtime-159", default-features = false }
 evm = { version="0.27.0", default-features=false, features=["with-codec"] }
 pallet-evm-precompile-bn128 = { git="https://github.com/purestake/frontier", default-features=false, branch="moonbeam-polkadot-v0.9.8" }
 pallet-evm-precompile-dispatch = { git="https://github.com/purestake/frontier", default-features=false, branch="moonbeam-polkadot-v0.9.8" }
@@ -73,10 +73,10 @@ pallet-treasury = { git = "https://github.com/paritytech/substrate", default-fea
 
 pallet-crowdloan-rewards = { git = "https://github.com/purestake/crowdloan-rewards", default-features = false, branch = "main" }
 
-moonbeam-evm-tracer = { path = "../evm_tracer", optional = true, default-features = false }
-evm-tracing-events = { path = "../../primitives/rpc/evm-tracing-events", optional = true, default-features = false }
-moonbeam-rpc-primitives-debug = { path = "../../primitives/rpc/debug", default-features = false }
-moonbeam-rpc-primitives-txpool = { path = "../../primitives/rpc/txpool", default-features = false }
+moonbeam-evm-tracer = { path = "../../../shared/runtime/evm_tracer", optional = true, default-features = false }
+evm-tracing-events = { path = "../../../shared/primitives/rpc/evm-tracing-events", optional = true, default-features = false }
+moonbeam-rpc-primitives-debug = { path = "../../../shared/primitives/rpc/debug", default-features = false }
+moonbeam-rpc-primitives-txpool = { git = "https://github.com/purestake/moonbeam", rev = "runtime-159", default-features = false }
 
 # Cumulus dependencies
 cumulus-pallet-parachain-system = { git = "https://github.com/purestake/cumulus", default-features = false, branch = "joshy-np098" }
