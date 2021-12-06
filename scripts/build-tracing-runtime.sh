@@ -3,6 +3,7 @@
 CHAINS=(
     moonbase
     moonriver
+    moonbeam
 )
 
 SRTOOL_IMAGE="paritytech/srtool:1.53.0"
