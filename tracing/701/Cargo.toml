@@ -11,3 +11,18 @@ panic = 'unwind'
 evm = { git = "https://github.com/purestake/evm", branch = "runtime-701-substitute-tracing"}
 evm-runtime = { git = "https://github.com/purestake/evm", branch = "runtime-701-substitute-tracing" }
 evm-gasometer = { git = "https://github.com/purestake/evm", branch = "runtime-701-substitute-tracing" }
+
+# Overrides to set Frontier version for code shared across runtime versions.
+[patch."https://github.com/nanocryk/frontier"]
+fp-evm = { git = "https://github.com/purestake/frontier", branch = "notlesh-v0.9.9-block-response-length" }
+pallet-evm = { git = "https://github.com/purestake/frontier", branch = "notlesh-v0.9.9-block-response-length" }
+
+# Overrides to set Substrate version for code shared across runtime versions.
+[patch."https://github.com/nanocryk/substrate-1"]
+sp-api = { git = "https://github.com/purestake/substrate", branch = "crystalin-v0.9.9-block-response-length" }
+sp-core = { git = "https://github.com/purestake/substrate", branch = "crystalin-v0.9.9-block-response-length" }
+sp-externalities = { git = "https://github.com/purestake/substrate", branch = "crystalin-v0.9.9-block-response-length" }
+sp-io = { git = "https://github.com/purestake/substrate", branch = "crystalin-v0.9.9-block-response-length" }
+sp-runtime = { git = "https://github.com/purestake/substrate", branch = "crystalin-v0.9.9-block-response-length" }
+sp-runtime-interface = { git = "https://github.com/purestake/substrate", branch = "crystalin-v0.9.9-block-response-length" }
+sp-std = { git = "https://github.com/purestake/substrate", branch = "crystalin-v0.9.9-block-response-length" }
