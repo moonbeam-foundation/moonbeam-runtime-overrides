@@ -10,7 +10,7 @@ version = "0.1.0"
 [dependencies]
 
 # Moonbeam
-evm-tracing-events = { path = "../../primitives/rpc/evm-tracing-events", default-features = false, features = [ "evm-tracing" ] }
+evm-tracing-events = { path = "../../../shared/primitives/rpc/evm-tracing-events", default-features = false, features = ["evm-tracing"] }
 moonbeam-primitives-ext = { path = "../../primitives/ext", default-features = false }
 
 # Substrate
