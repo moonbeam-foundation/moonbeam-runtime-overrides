@@ -3,6 +3,7 @@
 CHAINS=(
     moonbase
     moonriver
+    moonbeam
 )
 
 VERSION=$1

@@ -1,7 +1,8 @@
 [workspace]
 members = [
-    'runtime/moonriver',
     'runtime/moonbase',
+    'runtime/moonbeam',
+    'runtime/moonriver',
 ]
 
 [profile.release]

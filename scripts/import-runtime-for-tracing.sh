@@ -1,8 +1,9 @@
 #!/bin/bash
 
 CHAINS=(
-    moonbase
-    moonriver
+  moonbase
+  moonriver
+  moonbeam
 )
 
 CRATES_PATHS=(
@@ -46,11 +47,6 @@ cp tmp/moonbeam/rust-toolchain tracing/$SPEC_VERSION/rust-toolchain
 cp -r tmp/moonbeam/primitives/ext tracing/$SPEC_VERSION/primitives
 cp -r tmp/moonbeam/primitives/rpc/{debug,evm-tracing-events} tracing/$SPEC_VERSION/primitives/rpc
 cp -r tmp/moonbeam/runtime tracing/$SPEC_VERSION
-
-# Remove unused moonbeam runtime
-# TODO: revert theses lines when moonbeam will be in production
-echo "Remove unused moonbeam runtime..."
-rm -rf tracing/$SPEC_VERSION/runtime/moonbeam 
 
 # Create a virtual manifest for this new rust workspace from tracing template
 echo "Create a virtual manifest for this new rust workspace"
