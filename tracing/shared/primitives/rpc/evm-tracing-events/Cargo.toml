@@ -8,7 +8,7 @@ license = 'GPL-3.0-only'
 repository = 'https://github.com/PureStake/moonbeam/'
 
 [dependencies]
-# In those shared code the branch is irrelevant as long as revers to a rust2018 workspace.
+# In those shared code the branch is irrelevant as long as it refers to a rust2018 workspace.
 # Each version of the runtime will patch the Subtrate and Frontier dependencies to the correct
 # git repo and branch. Since cargo don't want to patch with the same repo url, we use a dummy fork
 # not used in the runtimes.
