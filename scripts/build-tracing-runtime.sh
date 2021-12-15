@@ -47,6 +47,5 @@ for CHAIN in ${CHAINS[@]}; do
   fi
 done
 
-# Clean up
+# Move back to git repository root
 cd ../../../..
-rm -rf tmp/build
