@@ -81,10 +81,10 @@ jobs:
         run: |
           mkdir -p build/moonriver-substitutes-tracing
           cp wasm/moonriver-* build/moonriver-substitutes-tracing/
-      #- name: Add moonbeam runtimes overrides
-      #  run: |
-      #    mkdir -p build/moonbeam-substitutes-tracing
-      #    cp wasm/moonbeam-* build/moonbeam-substitutes-tracing/
+      - name: Add moonbeam runtimes overrides
+        run: |
+          mkdir -p build/moonbeam-substitutes-tracing
+          cp wasm/moonbeam-* build/moonbeam-substitutes-tracing/
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
