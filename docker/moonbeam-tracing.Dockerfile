@@ -24,6 +24,7 @@ USER moonbeam
 COPY --chown=moonbeam build/moonbeam /moonbeam/moonbeam
 COPY --chown=moonbeam build/moonbase-substitutes-tracing /moonbeam/moonbase-substitutes-tracing
 COPY --chown=moonbeam build/moonriver-substitutes-tracing /moonbeam/moonriver-substitutes-tracing
+COPY --chown=moonbeam build/moonbeam-substitutes-tracing /moonbeam/moonbeam-substitutes-tracing
 RUN chmod uog+x /moonbeam/moonbeam
 
 # 30333 for parachain p2p 
