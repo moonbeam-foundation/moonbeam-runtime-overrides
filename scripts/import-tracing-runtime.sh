@@ -68,7 +68,7 @@ sed -i -e "s/POLKADOT_VERSION/$POLKADOT_VERSION/g" tracing/$SPEC_VERSION/Cargo.t
 # Enable evm-tracing feature
 echo "Enable evm-tracing feature..."
 for CHAIN in ${CHAINS[@]}; do
-  sed -i -e 's/\["std"\]/\["std", "evm-tracing"\]/g' tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
+  sed -i -e 's/\[\s*"std"\s*\]/\[ "std", "evm-tracing" \]/g' tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
 done
 
 # Replace some path dependencies by git dependencies
