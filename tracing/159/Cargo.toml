@@ -2,7 +2,6 @@
 members = [
     'runtime/moonriver',
     'runtime/moonbase',
-    'runtime/moonshadow'
 ]
 
 [profile.release]
