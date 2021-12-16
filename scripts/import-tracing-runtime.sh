@@ -1,12 +1,14 @@
 #!/bin/bash
 
+POLKADOT_VERSION="v0.9.12"
+
 CHAINS=(
   moonbase
   moonriver
   moonbeam
 )
 
-CRATES_PATHS=(
+PATHS_TO_GIT=(
   core-primitives
   pallets\\/asset-manager
   pallets\\/author-mapping
@@ -28,7 +30,12 @@ CRATES_PATHS=(
   primitives\\/account\\/
   primitives\\/rpc\\/txpool
   primitives\\/xcm\\/
+  relay-encoder
 )
+
+declare -A SHARED_PATHS
+SHARED_PATHS["..\/..\/primitives\/rpc\/evm-tracing-events"]="..\/..\/..\/shared\/primitives\/rpc\/evm-tracing-events"
+SHARED_PATHS["..\/rpc\/evm-tracing-events"]="..\/..\/..\/shared\/primitives\/rpc\/evm-tracing-events"
 
 SPEC_VERSION=$1
 GIT_REF=${2:-"runtime-$SPEC_VERSION"}
@@ -45,28 +52,38 @@ mkdir -p tracing/$SPEC_VERSION/primitives/rpc
 cp tmp/moonbeam/Cargo.lock tracing/$SPEC_VERSION/Cargo.lock
 cp tmp/moonbeam/rust-toolchain tracing/$SPEC_VERSION/rust-toolchain
 cp -r tmp/moonbeam/primitives/ext tracing/$SPEC_VERSION/primitives
-cp -r tmp/moonbeam/primitives/rpc/{debug,evm-tracing-events} tracing/$SPEC_VERSION/primitives/rpc
+cp -r tmp/moonbeam/primitives/rpc/debug tracing/$SPEC_VERSION/primitives/rpc
 cp -r tmp/moonbeam/runtime tracing/$SPEC_VERSION
+
+# Remove irrelevant files
+rm -rf tracing/$SPEC_VERSION/runtime/relay-encoder
 
 # Create a virtual manifest for this new rust workspace from tracing template
 echo "Create a virtual manifest for this new rust workspace"
 cp tracing/Cargo.toml.template tracing/$SPEC_VERSION/Cargo.toml
 
 # Set evm branch
-EVM_BRANCH="runtime-$SPEC_VERSION-substitute-tracing"
-sed -i -e "s/EVM_BRANCH/$EVM_BRANCH/g" tracing/$SPEC_VERSION/Cargo.toml
+sed -i -e "s/POLKADOT_VERSION/$POLKADOT_VERSION/g" tracing/$SPEC_VERSION/Cargo.toml
 
 # Enable evm-tracing feature
 echo "Enable evm-tracing feature..."
 for CHAIN in ${CHAINS[@]}; do
-  sed -i -e 's/\["std"\]/\["std", "evm-tracing"\]/g' tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
+  sed -i -e 's/\[\s*"std"\s*\]/\[ "std", "evm-tracing" \]/g' tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
 done
 
-# Replace path dependencies by git dependencies
+# Replace some path dependencies by git dependencies
 echo "Replace path dependencies by git dependencies..."
-for CRATE_PATH in ${CRATES_PATHS[@]}; do
-  sed -i -e "s/path = \"..\/..\/$CRATE_PATH\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"runtime-$SPEC_VERSION\"/g" tracing/$SPEC_VERSION/runtime/common/Cargo.toml
+for PATH_TO_GIT in ${PATHS_TO_GIT[@]}; do
+  sed -i -e "s/path = \"..\/..\/$PATH_TO_GIT\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"runtime-$SPEC_VERSION\"/g" tracing/$SPEC_VERSION/runtime/common/Cargo.toml
   for CHAIN in ${CHAINS[@]}; do
-    sed -i -e "s/path = \"..\/..\/$CRATE_PATH\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"runtime-$SPEC_VERSION\"/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
+    sed -i -e "s/path = \"..\/..\/$PATH_TO_GIT\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"runtime-$SPEC_VERSION\"/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
   done
 done
+
+# Rewrite some path dependencies to use shared dependencies
+cd tracing/$SPEC_VERSION
+for K in "${!SHARED_PATHS[@]}"; do
+  find . -path './target' -prune -o  -name '*.toml' -exec sed -i "s/path = \"$K\"/path = \"${SHARED_PATHS[$K]}\"/g" {} \;
+  echo $K;
+done
+cd ../..

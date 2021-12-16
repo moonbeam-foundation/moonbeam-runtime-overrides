@@ -1,13 +1,15 @@
 [workspace]
 members = [
-    'runtime/moonriver',
     'runtime/moonbase',
+    'runtime/moonbeam',
+    'runtime/moonriver',
 ]
 
 [profile.release]
 panic = 'unwind'
 
 [patch.crates-io]
-evm = { git = "https://github.com/purestake/evm", branch = "EVM_BRANCH"}
-evm-runtime = { git = "https://github.com/purestake/evm", branch = "EVM_BRANCH" }
-evm-gasometer = { git = "https://github.com/purestake/evm", branch = "EVM_BRANCH" }
+evm = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-POLKADOT_VERSION"}
+evm-runtime = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-POLKADOT_VERSION" }
+evm-gasometer = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-POLKADOT_VERSION" }
+ethereum = { git = "https://github.com/purestake/ethereum", branch = "joshy-scale-info" }

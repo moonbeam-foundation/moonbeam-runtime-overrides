@@ -138,7 +138,7 @@ xcm-simulator = { git = "https://github.com/purestake/polkadot", branch = "moonb
 substrate-wasm-builder = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.12" }
 
 [features]
-default = [ "std" ]
+default = [ "std", "evm-tracing" ]
 std = [
 	"account/std",
 	"cumulus-pallet-dmp-queue/std",

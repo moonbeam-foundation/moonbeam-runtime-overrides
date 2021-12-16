@@ -1,21 +1,27 @@
 #!/bin/bash
 
+# Constants
 CHAINS=(
     moonbase
     moonriver
     moonbeam
 )
-
 SRTOOL_IMAGE="paritytech/srtool:1.53.0"
 
+# Arguments
+VERSION=$1
+
+# Download srtool image
 docker pull $SRTOOL_IMAGE
 
-VERSION=$1
-cd tracing/${VERSION}
+# Copy the needed source code in a temporary folder
+mkdir -p tmp/build/tracing
+cp -r tracing/${VERSION} tmp/build/tracing/${VERSION}
+cp -r tracing/shared  tmp/build/tracing/${VERSION}/shared
+cd tmp/build/tracing/${VERSION}
 
-# Get copy of shared code and move all dependencies to shared
+# Move all dependencies to shared (to be in the rust workspace)
 find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/shared/shared/g' {} \;
-cp -r ../shared shared
 
 for CHAIN in ${CHAINS[@]}; do
   RUNTIME_DIR="runtime/$CHAIN"
@@ -31,17 +37,15 @@ for CHAIN in ${CHAINS[@]}; do
         echo ║ $line
         JSON="$line"
       done
+      # Copy wasm blob and josn digest in git repository
       Z_WASM=`echo $JSON | jq -r .runtimes.compressed.wasm`
-      cp $Z_WASM ../../wasm/$CHAIN-runtime-$VERSION-substitute-tracing.wasm
-      echo $JSON > ../../srtool-digest/$CHAIN-runtime-$VERSION-substitute-tracing.json
+      cp $Z_WASM ../../../../wasm/$CHAIN-runtime-$VERSION-substitute-tracing.wasm
+      echo $JSON > ../../../../srtool-digest/$CHAIN-runtime-$VERSION-substitute-tracing.json
     }
 
     echo "Finished building $CHAIN-$VERSION-substitute-tracing"
   fi
 done
 
-# Remove copy of shared code and restore all dependencies to shared
-rm -rf shared
-find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/shared/..\/..\/shared/g' {} \;
-
-cd ../..
+# Move back to git repository root
+cd ../../../..
