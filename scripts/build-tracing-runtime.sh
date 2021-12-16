@@ -21,7 +21,7 @@ cp -r tracing/shared  tmp/build/tracing/${VERSION}/shared
 cd tmp/build/tracing/${VERSION}
 
 # Move all dependencies to shared (to be in the rust workspace)
-find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/shared/shared/g' {} \;
+find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/..\/shared/..\/shared/g' {} \;
 
 for CHAIN in ${CHAINS[@]}; do
   RUNTIME_DIR="runtime/$CHAIN"
