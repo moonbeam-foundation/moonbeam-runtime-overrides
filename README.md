@@ -1,4 +1,4 @@
-# Moonbeam Runtime Overrives
+# Moonbeam Runtime Overrides
 
 This repository contains rewrites of the moonbeam project runtimes, these rewrites allow some specialized nodes to run modified runtimes, for example for tracing purposes.
 
