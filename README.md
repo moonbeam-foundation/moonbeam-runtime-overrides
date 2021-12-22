@@ -26,8 +26,8 @@ So, to import the new runtimes with chain spec `XXX`:
 1. Clone this git repository and create a branch `tracing-runtime-XXX` based on `main`
 1. Run the following command in the root of this git repository: `./scripts/import-runtime-for-tracing.sh XXX`
 1. Move to folder `tracing/XXX`
+1. Add feature `"transaction_v0"` for dependemncy `moonbeam-rpc-primitives-debug` on each runtime
 1. Run command `cargo check`
-1. Fix compile errors manually (mainly git dependencies that must be replaced by path dependencies)
 1. Commit new runtimes code
 1. Go back to the root of this git repository
 1. Run command `./scripts/build-tracing-runtime.sh XXX`

@@ -36,6 +36,8 @@ PATHS_TO_GIT=(
 declare -A SHARED_PATHS
 SHARED_PATHS["..\/..\/primitives\/rpc\/evm-tracing-events"]="..\/..\/..\/shared\/primitives\/rpc\/evm-tracing-events"
 SHARED_PATHS["..\/rpc\/evm-tracing-events"]="..\/..\/..\/shared\/primitives\/rpc\/evm-tracing-events"
+SHARED_PATHS["..\/..\/primitives\/rpc\/debug"]="..\/..\/..\/shared\/primitives\/rpc\/debug"
+SHARED_PATHS["..\/evm_tracer"]="..\/..\/..\/shared\/runtime\/evm_tracer"
 
 SPEC_VERSION=$1
 GIT_REF=${2:-"runtime-$SPEC_VERSION"}
@@ -48,12 +50,11 @@ git clone https://github.com/PureStake/moonbeam -b $GIT_REF tmp/moonbeam
 
 # Copy relevant files
 echo "Copy relevant files and folders..."
-mkdir -p tracing/$SPEC_VERSION/primitives/rpc
+mkdir -p tracing/$SPEC_VERSION/runtime
 cp tmp/moonbeam/Cargo.lock tracing/$SPEC_VERSION/Cargo.lock
 cp tmp/moonbeam/rust-toolchain tracing/$SPEC_VERSION/rust-toolchain
-cp -r tmp/moonbeam/primitives/ext tracing/$SPEC_VERSION/primitives
-cp -r tmp/moonbeam/primitives/rpc/debug tracing/$SPEC_VERSION/primitives/rpc
-cp -r tmp/moonbeam/runtime tracing/$SPEC_VERSION
+cp -r tmp/moonbeam/runtime/common tracing/$SPEC_VERSION/runtime/
+cp -r tmp/moonbeam/runtime/moon* tracing/$SPEC_VERSION/runtime/
 
 # Remove irrelevant files
 rm -rf tracing/$SPEC_VERSION/runtime/relay-encoder
@@ -77,6 +78,7 @@ for PATH_TO_GIT in ${PATHS_TO_GIT[@]}; do
   sed -i -e "s/path = \"..\/..\/$PATH_TO_GIT\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"runtime-$SPEC_VERSION\"/g" tracing/$SPEC_VERSION/runtime/common/Cargo.toml
   for CHAIN in ${CHAINS[@]}; do
     sed -i -e "s/path = \"..\/..\/$PATH_TO_GIT\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"runtime-$SPEC_VERSION\"/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
+    sed -i -e "s/path = \"..\/$PATH_TO_GIT\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"runtime-$SPEC_VERSION\"/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
   done
 done
 
