@@ -21,7 +21,7 @@ use codec::{Decode, Encode};
 #[cfg(feature = "transaction_v0")]
 use ethereum::TransactionV0 as Transaction;
 #[cfg(not(feature = "transaction_v0"))]
-use ethereum::Transaction;
+use ethereum::TransactionV2 as Transaction;
 
 use ethereum_types::H256;
 use sp_std::vec::Vec;

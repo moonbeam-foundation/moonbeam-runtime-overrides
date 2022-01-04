@@ -45,25 +45,25 @@ impl From<evm_gasometer::Snapshot> for Snapshot {
 pub enum GasometerEvent {
 	RecordCost {
 		cost: u64,
-		snapshot: Snapshot,
+		snapshot: Option<Snapshot>,
 	},
 	RecordRefund {
 		refund: i64,
-		snapshot: Snapshot,
+		snapshot: Option<Snapshot>,
 	},
 	RecordStipend {
 		stipend: u64,
-		snapshot: Snapshot,
+		snapshot: Option<Snapshot>,
 	},
 	RecordDynamicCost {
 		gas_cost: u64,
 		memory_gas: u64,
 		gas_refund: i64,
-		snapshot: Snapshot,
+		snapshot: Option<Snapshot>,
 	},
 	RecordTransaction {
 		cost: u64,
-		snapshot: Snapshot,
+		snapshot: Option<Snapshot>,
 	},
 }
 
@@ -73,18 +73,18 @@ impl From<evm_gasometer::tracing::Event> for GasometerEvent {
 		match i {
 			evm_gasometer::tracing::Event::RecordCost { cost, snapshot } => Self::RecordCost {
 				cost,
-				snapshot: snapshot.into(),
+				snapshot: snapshot.map(Into::into),
 			},
 			evm_gasometer::tracing::Event::RecordRefund { refund, snapshot } => {
 				Self::RecordRefund {
 					refund,
-					snapshot: snapshot.into(),
+					snapshot: snapshot.map(Into::into),
 				}
 			}
 			evm_gasometer::tracing::Event::RecordStipend { stipend, snapshot } => {
 				Self::RecordStipend {
 					stipend,
-					snapshot: snapshot.into(),
+					snapshot: snapshot.map(Into::into),
 				}
 			}
 			evm_gasometer::tracing::Event::RecordDynamicCost {
@@ -96,12 +96,12 @@ impl From<evm_gasometer::tracing::Event> for GasometerEvent {
 				gas_cost,
 				memory_gas,
 				gas_refund,
-				snapshot: snapshot.into(),
+				snapshot: snapshot.map(Into::into),
 			},
 			evm_gasometer::tracing::Event::RecordTransaction { cost, snapshot } => {
 				Self::RecordTransaction {
 					cost,
-					snapshot: snapshot.into(),
+					snapshot: snapshot.map(Into::into),
 				}
 			}
 		}
