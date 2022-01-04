@@ -43,10 +43,10 @@ GIT_REF=${2:-"runtime-$SPEC_VERSION"}
 
 if [[ "$SPEC_VERSION" == "local" ]]; then
   MOONBEAM_PATH="../../"
-  GIT_REV="$GIT_REF"
+  GIT_DEP_REF="branch = \"$GIT_REF\""
 else
   MOONBEAM_PATH="tmp/moonbeam"
-  GIT_REV="runtime-$SPEC_VERSION"
+  GIT_DEP_REF="rev = \"runtime-$SPEC_VERSION\""
 
   # Get moonbeam repository snapshot
   echo "Get moonbeam snapshot..."
@@ -77,16 +77,16 @@ sed -i -e "s/POLKADOT_VERSION/$POLKADOT_VERSION/g" tracing/$SPEC_VERSION/Cargo.t
 echo "Enable evm-tracing feature..."
 for CHAIN in ${CHAINS[@]}; do
   sed -i -e 's/\[\s*"std"\s*\]/\[ "std", "evm-tracing" \]/g' tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
+  sed -i -e 's/moonbeam-rpc-primitives-debug = { path = "..\/..\/primitives\/rpc\/debug", default-features = false }/moonbeam-rpc-primitives-debug = { path = "..\/..\/primitives\/rpc\/debug", default-features = false, features = \[ "transaction_v0" \] }/g' tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
 done
 
 # Replace some path dependencies by git dependencies
 echo "Replace path dependencies by git dependencies..."
 for PATH_TO_GIT in ${PATHS_TO_GIT[@]}; do
-  sed -i -e "s/path = \"..\/..\/$PATH_TO_GIT\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"$GIT_REV\"/g" tracing/$SPEC_VERSION/runtime/common/Cargo.toml
+  sed -i -e "s/path = \"..\/..\/$PATH_TO_GIT\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", $GIT_DEP_REF/g" tracing/$SPEC_VERSION/runtime/common/Cargo.toml
   for CHAIN in ${CHAINS[@]}; do
-    sed -i -e "s/path = \"..\/..\/$PATH_TO_GIT\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"$GIT_REV\"/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
-    sed -i -e "s/path = \"..\/relay-encoder\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", rev = \"$GIT_REV\"/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
-    sed -i -e 's/moonbeam-rpc-primitives-debug = { path = "..\/..\/primitives\/rpc\/debug", default-features = false }/moonbeam-rpc-primitives-debug = { path = "..\/..\/primitives\/rpc\/debug", default-features = false, features = \[ "transaction_v0" \] }/g' runtime/moonbase/Cargo.toml tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
+    sed -i -e "s/path = \"..\/..\/$PATH_TO_GIT\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", $GIT_DEP_REF/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
+    sed -i -e "s/path = \"..\/relay-encoder\"/git = \"https:\/\/github.com\/purestake\/moonbeam\", $GIT_DEP_REF/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
   done
 done
 
