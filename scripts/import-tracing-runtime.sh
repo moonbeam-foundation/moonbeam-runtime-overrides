@@ -19,6 +19,7 @@ PATHS_TO_GIT=(
   pallets\\/proxy-genesis-companion
   pallets\\/xcm-transactor
   precompiles\\/assets-erc20
+  precompiles\\/author-mapping
   precompiles\\/balances-erc20
   precompiles\\/crowdloan-rewards
   precompiles\\/parachain-staking
