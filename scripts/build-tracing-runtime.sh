@@ -30,27 +30,33 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
     if [ -d "$RUNTIME_DIR" ]; then
       echo "Build $RUNTIME_NAME-${VERSION}-substitute-tracing…"
 
-      CMD="docker run \
-        -u $(id -u ${USER}):$(id -g ${USER}) \
-        -i \
-        --rm \
-        -e PACKAGE=$RUNTIME_NAME-runtime \
-        -e RUNTIME_DIR=$RUNTIME_DIR \
-        -v $PWD:/build \
-        $SRTOOL_IMAGE build --app --json -cM"
+      if [[ "$VERSION" == "local" ]]; then
+        cargo build --locked -p $RUNTIME_NAME-runtime
+        cp target/debug/wbuild/$RUNTIME_NAME-runtime/${RUNTIME_NAME}_runtime.compact.compressed.wasm ../../../../wasm/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.wasm
+      else
+        CMD="docker run \
+          -u $(id -u ${USER}):$(id -g ${USER}) \
+          -i \
+          --rm \
+          -e PACKAGE=$RUNTIME_NAME-runtime \
+          -e RUNTIME_DIR=$RUNTIME_DIR \
+          -v $PWD:/build \
+          $SRTOOL_IMAGE build --app --json -cM"
 
-      # here we keep streaming the progress and fetch the last line for the json result
-      stdbuf -oL $CMD | {
-        while IFS= read -r line
-        do
-          echo ║ $line
-          JSON="$line"
-        done
-        # Copy wasm blob and josn digest in git repository
-        Z_WASM=`echo $JSON | jq -r .runtimes.compressed.wasm`
-        cp $Z_WASM ../../../../wasm/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.wasm
-        echo $JSON > ../../../../srtool-digest/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.json
-      }
+        # here we keep streaming the progress and fetch the last line for the json result
+        stdbuf -oL $CMD | {
+          while IFS= read -r line
+          do
+            echo ║ $line
+            JSON="$line"
+          done
+          # Copy wasm blob and josn digest in git repository
+          Z_WASM=`echo $JSON | jq -r .runtimes.compressed.wasm`
+          cp $Z_WASM ../../../../wasm/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.wasm
+          echo $JSON > ../../../../srtool-digest/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.json
+        }
+      fi
+
 
       echo "Finished building $RUNTIME_NAME-$VERSION-substitute-tracing"
     fi
