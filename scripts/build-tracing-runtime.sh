@@ -30,7 +30,14 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
     if [ -d "$RUNTIME_DIR" ]; then
       echo "Build $RUNTIME_NAME-${VERSION}-substitute-tracing…"
 
-      CMD="docker run -i --rm -e PACKAGE=$RUNTIME_NAME-runtime -e RUNTIME_DIR=$RUNTIME_DIR -v $PWD:/build $SRTOOL_IMAGE build --app --json -cM"
+      CMD="docker run \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        -i \
+        --rm \
+        -e PACKAGE=$RUNTIME_NAME-runtime \
+        -e RUNTIME_DIR=$RUNTIME_DIR \
+        -v $PWD:/build \
+        $SRTOOL_IMAGE build --app --json -cM"
 
       # here we keep streaming the progress and fetch the last line for the json result
       stdbuf -oL $CMD | {
