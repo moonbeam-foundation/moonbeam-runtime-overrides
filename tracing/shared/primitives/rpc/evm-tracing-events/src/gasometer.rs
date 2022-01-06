@@ -16,7 +16,7 @@
 
 use codec::{Decode, Encode};
 
-#[derive(Debug, Copy, Clone, Encode, Decode, PartialEq, Eq)]
+#[derive(Debug, Default, Copy, Clone, Encode, Decode, PartialEq, Eq)]
 pub struct Snapshot {
 	pub gas_limit: u64,
 	pub memory_gas: u64,
@@ -41,11 +41,19 @@ fn convert_snapshot(snapshot: evm_gasometer::Snapshot) -> Snapshot {
 }
 
 #[cfg(not(feature = "before_1200"))]
-fn convert_snapshot(snapshot_opt: Option<evm_gasometer::Snapshot>) -> Option<Snapshot> {
-	snapshot_opt.map(Into::into)
+fn convert_snapshot(snapshot_opt: Option<evm_gasometer::Snapshot>) -> Snapshot {
+	if let Some(snapshot) = snapshot_opt {
+		Snapshot {
+			gas_limit: snapshot.gas_limit,
+			memory_gas: snapshot.memory_gas,
+			used_gas: snapshot.used_gas,
+			refunded_gas: snapshot.refunded_gas,
+		}
+	} else {
+		Snapshot::default()
+	}
 }
 
-#[cfg(feature = "before_1200")]
 #[derive(Debug, Copy, Clone, Encode, Decode, PartialEq, Eq)]
 pub enum GasometerEvent {
 	RecordCost {
@@ -69,33 +77,6 @@ pub enum GasometerEvent {
 	RecordTransaction {
 		cost: u64,
 		snapshot: Snapshot,
-	},
-}
-
-#[cfg(not(feature = "before_1200"))]
-#[derive(Debug, Copy, Clone, Encode, Decode, PartialEq, Eq)]
-pub enum GasometerEvent {
-	RecordCost {
-		cost: u64,
-		snapshot: Option<Snapshot>,
-	},
-	RecordRefund {
-		refund: i64,
-		snapshot: Option<Snapshot>,
-	},
-	RecordStipend {
-		stipend: u64,
-		snapshot: Option<Snapshot>,
-	},
-	RecordDynamicCost {
-		gas_cost: u64,
-		memory_gas: u64,
-		gas_refund: i64,
-		snapshot: Option<Snapshot>,
-	},
-	RecordTransaction {
-		cost: u64,
-		snapshot: Option<Snapshot>,
 	},
 }
 
