@@ -30,6 +30,10 @@ sp-std = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v
 
 [features]
 default = [ "std" ]
+
+before_700 = []
+_700_to_1200 = []
+
 std = [
 	"codec/std",
 	"environmental/std",
@@ -44,5 +48,3 @@ std = [
 	"sp-runtime/std",
 	"sp-std/std",
 ]
-
-transaction_v0 = []
