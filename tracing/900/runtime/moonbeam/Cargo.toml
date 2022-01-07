@@ -82,7 +82,7 @@ pallet-crowdloan-rewards = { git = "https://github.com/purestake/crowdloan-rewar
 crowdloan-rewards-precompiles = { git = "https://github.com/purestake/moonbeam", rev = "runtime-900", default-features = false }
 
 moonbeam-evm-tracer = { path = "../../../shared/runtime/evm_tracer", optional = true, default-features = false }
-evm-tracing-events = { path = "../../../shared/primitives/rpc/evm-tracing-events", optional = true, default-features = false, features = ["before_1200"] }
+evm-tracing-events = { path = "../../../shared/primitives/rpc/evm-tracing-events", optional = true, default-features = false }
 moonbeam-rpc-primitives-debug = { path = "../../../shared/primitives/rpc/debug", default-features = false, features = ["_700_to_1200"] }
 moonbeam-rpc-primitives-txpool = { git = "https://github.com/purestake/moonbeam", rev = "runtime-900", default-features = false }
 
