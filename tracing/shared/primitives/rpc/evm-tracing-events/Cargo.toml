@@ -28,9 +28,6 @@ evm-gasometer = { version = "*", default-features = false }
 [features]
 default = ["std"]
 
-# Adapt the source code to compile old tracing runtimes (chain spec < 1200)
-before_1200 = []
-
 evm-tracing = ["evm/tracing", "evm-runtime/tracing", "evm-gasometer/tracing"]
 std = [
 	"codec/std",

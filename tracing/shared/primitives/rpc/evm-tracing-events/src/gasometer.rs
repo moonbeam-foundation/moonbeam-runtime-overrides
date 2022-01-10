@@ -30,27 +30,24 @@ impl Snapshot {
 	}
 }
 
-#[cfg(feature = "before_1200")]
-fn convert_snapshot(snapshot: evm_gasometer::Snapshot) -> Snapshot {
-	Snapshot {
-		gas_limit: snapshot.gas_limit,
-		memory_gas: snapshot.memory_gas,
-		used_gas: snapshot.used_gas,
-		refunded_gas: snapshot.refunded_gas,
-	}
-}
-
-#[cfg(not(feature = "before_1200"))]
-fn convert_snapshot(snapshot_opt: Option<evm_gasometer::Snapshot>) -> Snapshot {
-	if let Some(snapshot) = snapshot_opt {
-		Snapshot {
+impl From<evm_gasometer::Snapshot> for Snapshot {
+	fn from(snapshot: evm_gasometer::Snapshot) -> Self {
+		Self {
 			gas_limit: snapshot.gas_limit,
 			memory_gas: snapshot.memory_gas,
 			used_gas: snapshot.used_gas,
 			refunded_gas: snapshot.refunded_gas,
 		}
-	} else {
-		Snapshot::default()
+	}
+}
+
+impl From<Option<evm_gasometer::Snapshot>> for Snapshot {
+	fn from(snapshot_opt: Option<evm_gasometer::Snapshot>) -> Self {
+		if let Some(snapshot) = snapshot_opt {
+			snapshot.into()
+		} else {
+			Snapshot::default()
+		}
 	}
 }
 
@@ -86,18 +83,18 @@ impl From<evm_gasometer::tracing::Event> for GasometerEvent {
 		match i {
 			evm_gasometer::tracing::Event::RecordCost { cost, snapshot } => Self::RecordCost {
 				cost,
-				snapshot: convert_snapshot(snapshot),
+				snapshot: snapshot.into(),
 			},
 			evm_gasometer::tracing::Event::RecordRefund { refund, snapshot } => {
 				Self::RecordRefund {
 					refund,
-					snapshot: convert_snapshot(snapshot),
+					snapshot: snapshot.into(),
 				}
 			}
 			evm_gasometer::tracing::Event::RecordStipend { stipend, snapshot } => {
 				Self::RecordStipend {
 					stipend,
-					snapshot: convert_snapshot(snapshot),
+					snapshot: snapshot.into(),
 				}
 			}
 			evm_gasometer::tracing::Event::RecordDynamicCost {
@@ -109,12 +106,12 @@ impl From<evm_gasometer::tracing::Event> for GasometerEvent {
 				gas_cost,
 				memory_gas,
 				gas_refund,
-				snapshot: convert_snapshot(snapshot),
+				snapshot: snapshot.into(),
 			},
 			evm_gasometer::tracing::Event::RecordTransaction { cost, snapshot } => {
 				Self::RecordTransaction {
 					cost,
-					snapshot: convert_snapshot(snapshot),
+					snapshot: snapshot.into(),
 				}
 			}
 		}

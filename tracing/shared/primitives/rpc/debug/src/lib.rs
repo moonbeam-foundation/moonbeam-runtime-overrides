@@ -18,9 +18,11 @@
 
 use codec::{Decode, Encode};
 
-#[cfg(feature = "transaction_v0")]
+#[cfg(feature = "before_700")]
+use ethereum::Transaction as Transaction;
+#[cfg(feature = "_700_to_1200")]
 use ethereum::TransactionV0 as Transaction;
-#[cfg(not(feature = "transaction_v0"))]
+#[cfg(all(not(feature = "before_700"), not(feature = "_700_to_1200")))]
 use ethereum::TransactionV2 as Transaction;
 
 use ethereum_types::H256;
