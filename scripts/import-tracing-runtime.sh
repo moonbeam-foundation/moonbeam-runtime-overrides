@@ -42,12 +42,16 @@ SHARED_PATHS["..\/evm_tracer"]="..\/..\/..\/shared\/runtime\/evm_tracer"
 SPEC_VERSION=$1
 GIT_REF=${2:-"runtime-$SPEC_VERSION"}
 
+if [[ "$GIT_REF" == "runtime-$SPEC_VERSION" ]]; then
+  GIT_DEP_REF="rev = \"$GIT_REF\""
+else
+  GIT_DEP_REF="branch = \"$GIT_REF\""
+fi
+
 if [[ "$SPEC_VERSION" == "local" ]]; then
   MOONBEAM_PATH="../../"
-  GIT_DEP_REF="branch = \"$GIT_REF\""
 else
   MOONBEAM_PATH="tmp/moonbeam"
-  GIT_DEP_REF="rev = \"runtime-$SPEC_VERSION\""
 
   # Get moonbeam repository snapshot
   echo "Get moonbeam snapshot..."
@@ -90,10 +94,15 @@ for PATH_TO_GIT in ${PATHS_TO_GIT[@]}; do
   done
 done
 
-# Rewrite some path dependencies to use shared dependencies
 cd tracing/$SPEC_VERSION
+
+# Rewrite some path dependencies to use shared dependencies
 for K in "${!SHARED_PATHS[@]}"; do
   find . -path './target' -prune -o  -name '*.toml' -exec sed -i "s/path = \"$K\"/path = \"${SHARED_PATHS[$K]}\"/g" {} \;
   echo $K;
 done
+
+# Fix cargo.lock
+cargo update -p evm
+
 cd ../..
