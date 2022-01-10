@@ -1,0 +1,29 @@
+name: Create tracing runtime
+
+on:
+  workflow_dispatch:
+    inputs:
+      spec_version:
+        description: runtime spec version
+        required: true
+      moonbeam_git_ref:
+        description: git reference for runtime code in moonbeam repo [default "runtime-${spec_version}"]
+        required: false
+
+jobs:
+
+  create-tracing-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: import runtime
+        run: |
+          ./scripts/import-tracing-runtime.sh ${{ github.event.inputs.spec_version }} ${{ github.event.inputs.moonbeam_git_ref }}
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: "tracing-runtime-${{ github.event.inputs.spec_version }}"
+          commit-message: "Add tracing runtime ${{ github.event.inputs.spec_version }}"
+          draft: true
+          title: "Add tracing runtime ${{ github.event.inputs.spec_version }}"
+          reviewers: "librelois,nanocryk,tgmichel"
