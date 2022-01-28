@@ -1,0 +1,30 @@
+[workspace]
+members = [
+    'runtime/moonbase',
+    'runtime/moonbeam',
+    'runtime/moonriver',
+]
+
+[profile.release]
+panic = 'unwind'
+
+[patch.crates-io]
+evm = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-v0.9.13"}
+evm-runtime = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-v0.9.13" }
+evm-gasometer = { git = "https://github.com/purestake/evm", branch = "moonbeam-polkadot-v0.9.13" }
+ethereum = { git = "https://github.com/purestake/ethereum", branch = "tgm-0.11.1-typeinfo-patch" }
+
+# Overrides to set Frontier version for code shared across runtime versions.
+[patch."https://github.com/nanocryk/frontier"]
+fp-evm = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.13" }
+pallet-evm = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.13" }
+
+# Overrides to set Substrate version for code shared across runtime versions.
+[patch."https://github.com/nanocryk/substrate-1"]
+sp-api = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.13" }
+sp-core = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.13" }
+sp-externalities = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.13" }
+sp-io = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.13" }
+sp-runtime = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.13" }
+sp-runtime-interface = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.13" }
+sp-std = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.13" }
