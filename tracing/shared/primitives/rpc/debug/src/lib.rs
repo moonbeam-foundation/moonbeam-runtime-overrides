@@ -29,8 +29,8 @@ use ethereum_types::H256;
 use sp_std::vec::Vec;
 
 #[cfg(all(not(feature = "before_700"), not(feature = "_700_to_1200")))]
-#[api_version(2)]
 sp_api::decl_runtime_apis! {
+	#[api_version(2)]
 	pub trait DebugRuntimeApi {
 		fn trace_transaction(
 			extrinsics: Vec<Block::Extrinsic>,
