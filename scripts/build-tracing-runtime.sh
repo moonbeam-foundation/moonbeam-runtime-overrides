@@ -35,7 +35,6 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
         cp target/debug/wbuild/$RUNTIME_NAME-runtime/${RUNTIME_NAME}_runtime.compact.compressed.wasm ../../../../wasm/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.wasm
       else
         CMD="docker run \
-          -u $(id -u ${USER}):$(id -g ${USER}) \
           -i \
           --rm \
           -e PACKAGE=$RUNTIME_NAME-runtime \
