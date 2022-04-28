@@ -15,6 +15,7 @@ PATHS_TO_GIT=(
   pallets\\/ethereum-chain-id
   pallets\\/maintenance-mode
   pallets\\/migrations
+  pallets\\/moonbeam-orbiters
   pallets\\/parachain-staking
   pallets\\/proxy-genesis-companion
   pallets\\/xcm-transactor
