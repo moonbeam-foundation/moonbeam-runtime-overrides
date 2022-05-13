@@ -31,6 +31,7 @@ PATHS_TO_GIT=(
   precompiles\\/xtokens
   primitives\\/account\\/
   primitives\\/rpc\\/txpool
+  primitives\\/session-keys
   primitives\\/xcm\\/
 )
 
