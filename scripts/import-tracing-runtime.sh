@@ -22,6 +22,7 @@ PATHS_TO_GIT=(
   precompiles\\/assets-erc20
   precompiles\\/author-mapping
   precompiles\\/balances-erc20
+  precompiles\\/batch
   precompiles\\/crowdloan-rewards
   precompiles\\/parachain-staking
   precompiles\\/pallet-democracy
