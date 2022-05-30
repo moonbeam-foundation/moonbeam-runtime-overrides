@@ -105,7 +105,4 @@ for K in "${!SHARED_PATHS[@]}"; do
   echo $K;
 done
 
-# Fix cargo.lock
-cargo update -p evm
-
 cd ../..
