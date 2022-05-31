@@ -17,41 +17,41 @@ sha3 = { version = "0.8", optional = true, default-features = false }
 smallvec = "1.8.0"
 
 # Moonbeam
-account = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-moonbeam-core-primitives = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-moonbeam-relay-encoder = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-precompile-utils = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
+account = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+moonbeam-core-primitives = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+moonbeam-relay-encoder = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+precompile-utils = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
 runtime-common = { path = "../common", default-features = false }
-xcm-primitives = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
+xcm-primitives = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
 
 # Moonbeam pallets
-pallet-asset-manager = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-pallet-author-mapping = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
+pallet-asset-manager = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+pallet-author-mapping = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
 pallet-crowdloan-rewards = { git = "https://github.com/purestake/crowdloan-rewards", branch = "moonbeam-polkadot-v0.9.18", default-features = false }
-pallet-ethereum-chain-id = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-pallet-maintenance-mode = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false, features = [ "xcm-support" ] }
-pallet-migrations = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-pallet-moonbeam-orbiters = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-pallet-proxy-genesis-companion = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-parachain-staking = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-xcm-transactor = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
+pallet-ethereum-chain-id = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+pallet-maintenance-mode = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false, features = [ "xcm-support" ] }
+pallet-migrations = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+pallet-moonbeam-orbiters = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+pallet-proxy-genesis-companion = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+parachain-staking = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+xcm-transactor = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
 
 # Moonbeam precompiles
-crowdloan-rewards-precompiles = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-pallet-author-mapping-precompiles = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-pallet-democracy-precompiles = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-pallet-evm-precompile-assets-erc20 = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-pallet-evm-precompile-balances-erc20 = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-parachain-staking-precompiles = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-relay-encoder-precompiles = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-xcm-transactor-precompiles = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-xtokens-precompiles = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
+crowdloan-rewards-precompiles = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+pallet-author-mapping-precompiles = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+pallet-democracy-precompiles = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+pallet-evm-precompile-assets-erc20 = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+pallet-evm-precompile-balances-erc20 = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+parachain-staking-precompiles = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+relay-encoder-precompiles = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+xcm-transactor-precompiles = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+xtokens-precompiles = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
 
 # Moonbeam tracing
 evm-tracing-events = { path = "../../../shared/primitives/rpc/evm-tracing-events", optional = true, default-features = false }
 moonbeam-evm-tracer = { path = "../../../shared/runtime/evm_tracer", optional = true, default-features = false }
 moonbeam-rpc-primitives-debug = { path = "../../../shared/primitives/rpc/debug", default-features = false }
-moonbeam-rpc-primitives-txpool = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
+moonbeam-rpc-primitives-txpool = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
 
 # Substrate
 frame-executive = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.18", default-features = false }

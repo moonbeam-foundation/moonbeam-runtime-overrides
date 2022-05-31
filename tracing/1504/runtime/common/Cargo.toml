@@ -12,11 +12,11 @@ impl-trait-for-tuples = "0.2.1"
 log = "0.4"
 
 # Moonbeam
-pallet-asset-manager = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", optional = true, default-features = false }
-pallet-author-mapping = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-pallet-migrations = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-parachain-staking = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", default-features = false }
-xcm-transactor = { git = "https://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@github.com/purestake/moonbeam-private", rev = "runtime-1504", optional = true, default-features = false }
+pallet-asset-manager = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", optional = true, default-features = false }
+pallet-author-mapping = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+pallet-migrations = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+parachain-staking = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", default-features = false }
+xcm-transactor = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1504", optional = true, default-features = false }
 
 # Substrate
 frame-support = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-v0.9.18", default-features = false }
