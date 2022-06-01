@@ -38,3 +38,5 @@ std = [
 	"evm-runtime/std",
 	"evm-gasometer/std",
 ]
+
+runtime-1600 = []
