@@ -106,3 +106,9 @@ for K in "${!SHARED_PATHS[@]}"; do
 done
 
 cd ../..
+
+# Add feature runtime-1600 to evm-tracing-events
+# evm-tracing-events = { path = "../../../shared/primitives/rpc/evm-tracing-events", optional = true, default-features = false, features = ["runtime-1600"] }
+for CHAIN in ${CHAINS[@]}; do
+  sed -i -e "s/evm-tracing-events = { path = \"..\/..\/..\/shared\/primitives\/rpc\/evm-tracing-events\", optional = true, default-features = false/evm-tracing-events = { path = \"..\/..\/..\/shared\/primitives\/rpc\/evm-tracing-events\", optional = true, default-features = false, features = [\"runtime-1600\"]/g" tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
+done
