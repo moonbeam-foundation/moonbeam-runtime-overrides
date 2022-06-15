@@ -28,7 +28,7 @@ PATHS_TO_GIT=(
   precompiles\\/pallet-democracy
   precompiles\\/relay-encoder
   precompiles\\/utils
-  precompiles\\/xcm_transactor
+  precompiles\\/xcm-transactor
   precompiles\\/xtokens
   primitives\\/account\\/
   primitives\\/rpc\\/txpool
