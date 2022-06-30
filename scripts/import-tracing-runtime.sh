@@ -30,6 +30,7 @@ PATHS_TO_GIT=(
   precompiles\\/utils
   precompiles\\/xcm-transactor
   precompiles\\/xtokens
+  precompiles\\/call-permit
   primitives\\/account\\/
   primitives\\/rpc\\/txpool
   primitives\\/session-keys
