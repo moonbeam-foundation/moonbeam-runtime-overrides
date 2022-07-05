@@ -13,6 +13,7 @@ PATHS_TO_GIT=(
   pallets\\/asset-manager
   pallets\\/author-mapping
   pallets\\/ethereum-chain-id
+  pallets\\/ethereum-xcm
   pallets\\/maintenance-mode
   pallets\\/migrations
   pallets\\/moonbeam-orbiters
