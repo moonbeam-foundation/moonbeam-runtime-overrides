@@ -6,7 +6,7 @@ ALL_RUNTIMES_NAMES=(
     moonriver
     moonbeam
 )
-SRTOOL_IMAGE="paritytech/srtool:1.57.0"
+SRTOOL_IMAGE="paritytech/srtool:1.62.0"
 
 # Arguments
 VERSION=$1
@@ -20,6 +20,7 @@ mkdir -p tmp/build/tracing
 cp -r tracing/${VERSION} tmp/build/tracing/${VERSION}
 cp -r tracing/shared  tmp/build/tracing/${VERSION}/shared
 cd tmp/build/tracing/${VERSION}
+chmod -R 777 runtime
 
 # Move all dependencies to shared (to be in the rust workspace)
 find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/..\/shared/..\/shared/g' {} \;

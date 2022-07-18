@@ -19,19 +19,21 @@ PATHS_TO_GIT=(
   pallets\\/moonbeam-orbiters
   pallets\\/parachain-staking
   pallets\\/proxy-genesis-companion
+  pallets\\/randomness
   pallets\\/xcm-transactor
   precompiles\\/assets-erc20
   precompiles\\/author-mapping
   precompiles\\/balances-erc20
   precompiles\\/batch
+  precompiles\\/call-permit
   precompiles\\/crowdloan-rewards
   precompiles\\/parachain-staking
   precompiles\\/pallet-democracy
   precompiles\\/relay-encoder
+  precompiles\\/randomness
   precompiles\\/utils
   precompiles\\/xcm-transactor
   precompiles\\/xtokens
-  precompiles\\/call-permit
   primitives\\/account\\/
   primitives\\/rpc\\/txpool
   primitives\\/session-keys
