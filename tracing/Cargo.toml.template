@@ -20,10 +20,10 @@ pallet-evm = { git = "https://github.com/purestake/frontier", branch = "moonbeam
 
 # Overrides to set Substrate version for code shared across runtime versions.
 [patch."https://github.com/nanocryk/substrate-1"]
-sp-api = { git = "https://github.com/paritytech/substrate", branch = "polkadot-POLKADOT_VERSION" }
-sp-core = { git = "https://github.com/paritytech/substrate", branch = "polkadot-POLKADOT_VERSION" }
-sp-externalities = { git = "https://github.com/paritytech/substrate", branch = "polkadot-POLKADOT_VERSION" }
-sp-io = { git = "https://github.com/paritytech/substrate", branch = "polkadot-POLKADOT_VERSION" }
-sp-runtime = { git = "https://github.com/paritytech/substrate", branch = "polkadot-POLKADOT_VERSION" }
-sp-runtime-interface = { git = "https://github.com/paritytech/substrate", branch = "polkadot-POLKADOT_VERSION" }
-sp-std = { git = "https://github.com/paritytech/substrate", branch = "polkadot-POLKADOT_VERSION" }
+sp-api = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-POLKADOT_VERSION" }
+sp-core = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-POLKADOT_VERSION" }
+sp-externalities = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-POLKADOT_VERSION" }
+sp-io = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-POLKADOT_VERSION" }
+sp-runtime = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-POLKADOT_VERSION" }
+sp-runtime-interface = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-POLKADOT_VERSION" }
+sp-std = { git = "https://github.com/purestake/substrate", branch = "moonbeam-polkadot-POLKADOT_VERSION" }
