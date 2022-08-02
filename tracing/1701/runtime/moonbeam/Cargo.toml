@@ -17,43 +17,43 @@ sha3 = { version = "0.8", optional = true, default-features = false }
 smallvec = "1.8.0"
 
 # Moonbeam
-account = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-moonbeam-core-primitives = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-moonbeam-relay-encoder = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
+account = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+moonbeam-core-primitives = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+moonbeam-relay-encoder = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
 moonbeam-runtime-common = { path = "../common", default-features = false }
-precompile-utils = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-session-keys-primitives = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-xcm-primitives = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
+precompile-utils = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+session-keys-primitives = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+xcm-primitives = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
 
 # Moonbeam pallets
-pallet-asset-manager = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-author-mapping = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
+pallet-asset-manager = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-author-mapping = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
 pallet-crowdloan-rewards = { git = "https://github.com/purestake/crowdloan-rewards", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-ethereum-chain-id = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-maintenance-mode = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false, features = [ "xcm-support" ] }
-pallet-migrations = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-moonbeam-orbiters = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-parachain-staking = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-proxy-genesis-companion = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-xcm-transactor = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
+pallet-ethereum-chain-id = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-maintenance-mode = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false, features = [ "xcm-support" ] }
+pallet-migrations = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-moonbeam-orbiters = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-parachain-staking = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-proxy-genesis-companion = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-xcm-transactor = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
 
 # Moonbeam precompiles
-pallet-evm-precompile-author-mapping = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-evm-precompile-balances-erc20 = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-evm-precompile-batch = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-evm-precompile-crowdloan-rewards = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-evm-precompile-democracy = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-evm-precompile-parachain-staking = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-evm-precompile-relay-encoder = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-evm-precompile-xcm-transactor = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-evm-precompile-xtokens = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
-pallet-evm-precompileset-assets-erc20 = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
+pallet-evm-precompile-author-mapping = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-evm-precompile-balances-erc20 = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-evm-precompile-batch = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-evm-precompile-crowdloan-rewards = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-evm-precompile-democracy = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-evm-precompile-parachain-staking = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-evm-precompile-relay-encoder = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-evm-precompile-xcm-transactor = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-evm-precompile-xtokens = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
+pallet-evm-precompileset-assets-erc20 = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
 
 # Moonbeam tracing
 evm-tracing-events = { path = "../../../shared/primitives/rpc/evm-tracing-events", optional = true, default-features = false, features = ["runtime-1600"] }
 moonbeam-evm-tracer = { path = "../../../shared/runtime/evm_tracer", optional = true, default-features = false }
 moonbeam-rpc-primitives-debug = { path = "../../../shared/primitives/rpc/debug", default-features = false }
-moonbeam-rpc-primitives-txpool = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false }
+moonbeam-rpc-primitives-txpool = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false }
 
 # Substrate
 frame-executive = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.23", default-features = false }
@@ -89,18 +89,18 @@ sp-transaction-pool = { git = "https://github.com/paritytech/substrate", branch 
 sp-version = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.23", default-features = false }
 
 # Frontier
-fp-evm = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-fp-rpc = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-fp-self-contained = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-base-fee = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-ethereum = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-evm = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-evm-precompile-blake2 = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-evm-precompile-bn128 = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-evm-precompile-dispatch = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-evm-precompile-modexp = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-evm-precompile-sha3fips = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
-pallet-evm-precompile-simple = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
+fp-evm = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+fp-rpc = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+fp-self-contained = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+pallet-base-fee = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+pallet-ethereum = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+pallet-evm = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+pallet-evm-precompile-blake2 = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+pallet-evm-precompile-bn128 = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+pallet-evm-precompile-dispatch = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+pallet-evm-precompile-modexp = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+pallet-evm-precompile-sha3fips = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
+pallet-evm-precompile-simple = { git = "https://github.com/purestake/frontier", branch = "moonbeam-polkadot-v0.9.23-gaslimit-override", default-features = false }
 
 # Cumulus / Nimbus
 cumulus-pallet-dmp-queue = { git = "https://github.com/purestake/cumulus", branch = "moonbeam-polkadot-v0.9.23", default-features = false }
@@ -142,7 +142,7 @@ cumulus-test-relay-sproof-builder = { git = "https://github.com/purestake/cumulu
 polkadot-runtime-parachains = { git = "https://github.com/purestake/polkadot", branch = "moonbeam-polkadot-v0.9.23" }
 xcm-simulator = { git = "https://github.com/purestake/polkadot", branch = "moonbeam-polkadot-v0.9.23" }
 
-precompile-utils = { git = "https://github.com/purestake/moonbeam", rev = "runtime-1701", default-features = false, features = [ "testing" ] }
+precompile-utils = { git = "https://github.com/purestake/moonbeam", branch = "tgm-0.9.23-1701-gaslimit-override-fix", default-features = false, features = [ "testing" ] }
 
 [build-dependencies]
 substrate-wasm-builder = { git = "https://github.com/paritytech/substrate", branch = "polkadot-v0.9.23" }

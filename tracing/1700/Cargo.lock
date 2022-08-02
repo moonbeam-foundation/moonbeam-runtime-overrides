@@ -15,7 +15,7 @@ dependencies = [
 [[package]]
 name = "account"
 version = "0.1.1"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "blake2-rfc",
  "hex",
@@ -2171,7 +2171,7 @@ dependencies = [
 [[package]]
 name = "fp-consensus"
 version = "2.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "ethereum",
  "parity-scale-codec",
@@ -2183,7 +2183,7 @@ dependencies = [
 [[package]]
 name = "fp-ethereum"
 version = "1.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -2197,7 +2197,7 @@ dependencies = [
 [[package]]
 name = "fp-evm"
 version = "3.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "evm",
  "frame-support",
@@ -2210,7 +2210,7 @@ dependencies = [
 [[package]]
 name = "fp-rpc"
 version = "3.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -2227,7 +2227,7 @@ dependencies = [
 [[package]]
 name = "fp-self-contained"
 version = "1.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "ethereum",
  "frame-support",
@@ -2241,7 +2241,7 @@ dependencies = [
 [[package]]
 name = "fp-storage"
 version = "2.0.0"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "parity-scale-codec",
  "serde",
@@ -4414,7 +4414,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-core-primitives"
 version = "0.1.1"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "account",
  "fp-self-contained",
@@ -4456,7 +4456,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-relay-encoder"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "cumulus-primitives-core",
  "frame-system",
@@ -4489,7 +4489,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-rpc-primitives-txpool"
 version = "0.6.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "ethereum",
  "parity-scale-codec",
@@ -5313,7 +5313,7 @@ dependencies = [
 [[package]]
 name = "pallet-asset-manager"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5366,7 +5366,7 @@ dependencies = [
 [[package]]
 name = "pallet-author-mapping"
 version = "2.0.5"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -5487,7 +5487,7 @@ dependencies = [
 [[package]]
 name = "pallet-base-fee"
 version = "1.0.0"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -5674,7 +5674,7 @@ dependencies = [
 [[package]]
 name = "pallet-ethereum"
 version = "4.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -5702,7 +5702,7 @@ dependencies = [
 [[package]]
 name = "pallet-ethereum-chain-id"
 version = "1.0.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -5714,7 +5714,7 @@ dependencies = [
 [[package]]
 name = "pallet-ethereum-xcm"
 version = "1.0.0-dev"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -5739,7 +5739,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm"
 version = "6.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "evm",
  "fp-evm",
@@ -5763,7 +5763,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-author-mapping"
 version = "0.2.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -5783,7 +5783,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-balances-erc20"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -5805,7 +5805,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-batch"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "evm",
  "fp-evm",
@@ -5826,7 +5826,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-blake2"
 version = "2.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "fp-evm",
 ]
@@ -5834,7 +5834,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-bn128"
 version = "2.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "fp-evm",
  "sp-core",
@@ -5844,7 +5844,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-call-permit"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "evm",
  "fp-evm",
@@ -5866,7 +5866,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-crowdloan-rewards"
 version = "0.6.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -5884,7 +5884,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-democracy"
 version = "0.2.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -5903,7 +5903,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-dispatch"
 version = "2.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -5913,7 +5913,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-modexp"
 version = "2.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "fp-evm",
  "num",
@@ -5922,7 +5922,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-parachain-staking"
 version = "1.0.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -5942,7 +5942,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-randomness"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -5963,7 +5963,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-relay-encoder"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "cumulus-primitives-core",
  "fp-evm",
@@ -5984,7 +5984,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-sha3fips"
 version = "2.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "fp-evm",
  "tiny-keccak",
@@ -5993,7 +5993,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-simple"
 version = "2.0.0-dev"
-source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23#896f99a7c134981c728c732e4fb7f43f69ccf3d7"
+source = "git+https://github.com/purestake/frontier?branch=moonbeam-polkadot-v0.9.23-gaslimit-override#bd68b2b392f9ca4ea9d5e98d872906e5743c2ecb"
 dependencies = [
  "fp-evm",
  "ripemd",
@@ -6003,7 +6003,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-xcm-transactor"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "evm",
  "fp-evm",
@@ -6025,7 +6025,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-xtokens"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6046,7 +6046,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompileset-assets-erc20"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6145,7 +6145,7 @@ dependencies = [
 [[package]]
 name = "pallet-maintenance-mode"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "cumulus-primitives-core",
  "frame-support",
@@ -6177,7 +6177,7 @@ dependencies = [
 [[package]]
 name = "pallet-migrations"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -6225,7 +6225,7 @@ dependencies = [
 [[package]]
 name = "pallet-moonbeam-orbiters"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6286,7 +6286,7 @@ dependencies = [
 [[package]]
 name = "pallet-parachain-staking"
 version = "3.0.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6334,7 +6334,7 @@ dependencies = [
 [[package]]
 name = "pallet-proxy-genesis-companion"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -6347,7 +6347,7 @@ dependencies = [
 [[package]]
 name = "pallet-randomness"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6621,7 +6621,7 @@ dependencies = [
 [[package]]
 name = "pallet-xcm-transactor"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "cumulus-primitives-core",
  "frame-benchmarking",
@@ -8058,7 +8058,7 @@ checksum = "eb9f9e6e233e5c4a35559a617bf40a4ec447db2e84c20b55a6f83167b7e57872"
 [[package]]
 name = "precompile-utils"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "evm",
  "fp-evm",
@@ -8082,7 +8082,7 @@ dependencies = [
 [[package]]
 name = "precompile-utils-macro"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "num_enum",
  "proc-macro2",
@@ -9994,7 +9994,7 @@ dependencies = [
 [[package]]
 name = "session-keys-primitives"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "async-trait",
  "frame-support",
@@ -12476,7 +12476,7 @@ dependencies = [
 [[package]]
 name = "xcm-primitives"
 version = "0.1.0"
-source = "git+https://github.com/purestake/moonbeam?rev=runtime-1700#af6901eb966edb89167ffc85330e133c5fdf81bd"
+source = "git+https://github.com/purestake/moonbeam?branch=tgm-0.9.23-1700-gaslimit-override-fix#46b69f4b4162759d57a5a44d093362cdbd68ab5f"
 dependencies = [
  "ethereum",
  "ethereum-types",
