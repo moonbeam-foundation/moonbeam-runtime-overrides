@@ -1,6 +1,6 @@
 #!/bin/bash
 
-POLKADOT_VERSION="v0.9.23"
+POLKADOT_VERSION="v0.9.26"
 
 CHAINS=(
   moonbase
