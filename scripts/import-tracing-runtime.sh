@@ -29,10 +29,12 @@ PATHS_TO_GIT=(
   precompiles\\/crowdloan-rewards
   precompiles\\/parachain-staking
   precompiles\\/pallet-democracy
+  precompiles\\/proxy
   precompiles\\/relay-encoder
   precompiles\\/randomness
   precompiles\\/utils
   precompiles\\/xcm-transactor
+  precompiles\\/xcm-utils
   precompiles\\/xtokens
   primitives\\/account\\/
   primitives\\/rpc\\/txpool
