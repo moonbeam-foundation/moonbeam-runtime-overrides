@@ -17,6 +17,7 @@ PATHS_TO_GIT=(
   pallets\\/maintenance-mode
   pallets\\/migrations
   pallets\\/moonbeam-orbiters
+  pallets\\/moonbeam-xcm-benchmarks
   pallets\\/parachain-staking
   pallets\\/proxy-genesis-companion
   pallets\\/randomness
