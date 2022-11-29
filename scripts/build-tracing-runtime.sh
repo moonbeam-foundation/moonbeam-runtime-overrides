@@ -6,7 +6,7 @@ ALL_RUNTIMES_NAMES=(
     moonriver
     moonbeam
 )
-SRTOOL_IMAGE="paritytech/srtool:1.62.0"
+SRTOOL_IMAGE="paritytech/srtool:1.64.0"
 
 # Arguments
 VERSION=$1
@@ -50,7 +50,7 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
             echo ║ $line
             JSON="$line"
           done
-          # Copy wasm blob and josn digest in git repository
+          # Copy wasm blob and json digest in git repository
           Z_WASM=`echo $JSON | jq -r .runtimes.compressed.wasm`
           cp $Z_WASM ../../../../wasm/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.wasm
           echo $JSON > ../../../../srtool-digest/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.json
