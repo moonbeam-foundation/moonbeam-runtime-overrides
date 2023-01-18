@@ -28,12 +28,15 @@ PATHS_TO_GIT=(
   precompiles\\/batch
   precompiles\\/call-permit
   precompiles\\/collective
+  precompiles\\/conviction-voting
   precompiles\\/crowdloan-rewards
   precompiles\\/parachain-staking
   precompiles\\/pallet-democracy
+  precompiles\\/preimage
   precompiles\\/proxy
   precompiles\\/relay-encoder
   precompiles\\/randomness
+  precompiles\\/referenda
   precompiles\\/utils
   precompiles\\/xcm-transactor
   precompiles\\/xcm-utils
