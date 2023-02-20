@@ -12,6 +12,7 @@ PATHS_TO_GIT=(
   core-primitives
   pallets\\/asset-manager
   pallets\\/author-mapping
+  pallets\\/erc20-xcm-bridge
   pallets\\/ethereum-chain-id
   pallets\\/ethereum-xcm
   pallets\\/maintenance-mode
