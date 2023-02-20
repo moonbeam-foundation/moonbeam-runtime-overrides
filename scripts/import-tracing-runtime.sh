@@ -42,10 +42,10 @@ PATHS_TO_GIT=(
   precompiles\\/xcm-transactor
   precompiles\\/xcm-utils
   precompiles\\/xtokens
-  primitives\\/account\\/
+  primitives\\/account
   primitives\\/rpc\\/txpool
   primitives\\/session-keys
-  primitives\\/xcm\\/
+  primitives\\/xcm
 )
 
 declare -A SHARED_PATHS
