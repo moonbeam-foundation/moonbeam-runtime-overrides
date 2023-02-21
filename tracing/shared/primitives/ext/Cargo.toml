@@ -10,26 +10,21 @@ repository = 'https://github.com/PureStake/moonbeam/'
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-# In those shared code the branch is irrelevant as long as it refers to a rust2018 workspace.
-# Each version of the runtime will patch the Subtrate and Frontier dependencies to the correct
-# git repo and branch. Since cargo don't want to patch with the same repo url, we use a dummy fork
-# not used in the runtimes.
-
-ethereum-types = { version = "*", default-features = false }
+ethereum-types = { workspace = true }
 
 # Moonbeam
-evm-tracing-events = { path = "../rpc/evm-tracing-events", default-features = false }
+evm-tracing-events = { workspace = true }
 
 # Substrate
-codec = { package = "parity-scale-codec", version = "*", default-features = false }
-sp-runtime-interface = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
-sp-externalities = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
-sp-std = { git = "https://github.com/nanocryk/substrate-1", branch = "polkadot-v0.9.11", default-features = false }
+parity-scale-codec = { workspace = true }
+sp-runtime-interface = { workspace = true }
+sp-externalities = { workspace = true }
+sp-std = { workspace = true }
 
 [features]
 default = ["std"]
 std = [
-	"codec/std",
+	"parity-scale-codec/std",
 	"ethereum-types/std",
 	"evm-tracing-events/std",
 	"sp-runtime-interface/std",

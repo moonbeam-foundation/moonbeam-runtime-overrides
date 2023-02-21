@@ -41,7 +41,7 @@ pub use runtime::RuntimeEvent;
 
 use ::evm::Opcode;
 use alloc::vec::Vec;
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use ethereum_types::{H160, U256};
 use sp_runtime_interface::pass_by::PassByCodec;
 
