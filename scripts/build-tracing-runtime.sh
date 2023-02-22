@@ -23,7 +23,7 @@ cd tmp/build/tracing/${VERSION}
 chmod -R 777 runtime
 
 # Move all dependencies to shared (to be in the rust workspace)
-find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/..\/shared/..\/shared/g' {} \;
+# find . -path './target' -prune -o  -name '*.toml' -exec sed -i 's/..\/..\/shared/..\/shared/g' {} \;
 
 for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
   RUNTIME_DIR="runtime/$RUNTIME_NAME"
