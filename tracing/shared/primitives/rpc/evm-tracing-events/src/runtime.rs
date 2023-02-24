@@ -18,7 +18,7 @@ extern crate alloc;
 
 use super::{opcodes_string, Context, StepEventFilter};
 use alloc::vec::Vec;
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use ethereum_types::{H160, H256, U256};
 pub use evm::{ExitError, ExitReason, ExitSucceed, Opcode};
 
