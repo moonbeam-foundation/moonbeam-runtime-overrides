@@ -18,7 +18,7 @@ else
 fi
 
 if [[ "$SPEC_VERSION" == "local" ]]; then
-  MOONBEAM_PATH="../moonbeam"
+  MOONBEAM_PATH="../../"
 else
   MOONBEAM_PATH="tmp/moonbeam"
 
