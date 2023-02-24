@@ -1,13 +1,5 @@
 #!/bin/bash
 
-POLKADOT_VERSION="v0.9.37"
-
-CHAINS=(
-  moonbase
-  moonriver
-  moonbeam
-)
-
 SPEC_VERSION=$1
 GIT_REF=${2:-"runtime-$SPEC_VERSION"}
 
