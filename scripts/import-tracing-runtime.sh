@@ -41,17 +41,9 @@ cp -r $MOONBEAM_PATH/runtime/moon* tracing/$SPEC_VERSION/runtime/
 # Remove irrelevant files
 rm -rf tracing/$SPEC_VERSION/runtime/relay-encoder
 
-# Enable evm-tracing feature
-echo "Enable evm-tracing feature..."
-for CHAIN in ${CHAINS[@]}; do
-  sed -i -e 's/default\s*=\s*\[\s*"std"\s*\]/default = \[ "std", "evm-tracing" \]/g' tracing/$SPEC_VERSION/runtime/$CHAIN/Cargo.toml
-done
-
-
-echo "Run Rust migration tool"
-
+echo "Run migration script"
 cd scripts
-cargo run --bin migrate-toml -- --file ../tracing/$SPEC_VERSION/Cargo.toml --repo "https://github.com/PureStake/moonbeam" $GIT_DEP_REF
+cargo run -q --bin migrate-imported -- --dir ../tracing/$SPEC_VERSION --repo "https://github.com/PureStake/moonbeam" $GIT_DEP_REF
 cd ..
 
 echo "Done !"

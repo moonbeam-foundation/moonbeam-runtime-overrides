@@ -16,7 +16,7 @@
 
 use {
 	clap::Parser,
-	std::path::PathBuf,
+	std::path::{Path, PathBuf},
 	toml_edit::{Array, Document, Formatted, Item, Value},
 };
 
@@ -24,7 +24,7 @@ use {
 #[command(about)]
 struct Args {
 	#[arg(long)]
-	file: PathBuf,
+	dir: PathBuf,
 	#[arg(long)]
 	rev: Option<String>,
 	#[arg(long)]
@@ -32,6 +32,19 @@ struct Args {
 	#[arg(long)]
 	repo: String,
 }
+
+const SHARED_PATH: [&str; 4] = [
+	"primitives/rpc/evm-tracing-events",
+	"runtime/evm_tracer",
+	"primitives/rpc/debug",
+	"primitives/ext",
+];
+const LOCAL_PATH: [&str; 4] = [
+	"runtime/moonbeam",
+	"runtime/moonriver",
+	"runtime/moonbase",
+	"runtime/common",
+];
 
 fn main() {
 	// Parse cmd args
@@ -42,21 +55,39 @@ fn main() {
 		_ => (),
 	}
 
+	let runtimes = update_root_toml(&args);
+
+	for runtime in runtimes {
+		let mut path = args.dir.clone();
+		path.push(runtime);
+		path.push("Cargo.toml");
+		update_runtime_toml(&path)
+	}
+}
+
+/// Update the root level Cargo.toml, and returns the list of runtimes.
+fn update_root_toml(args: &Args) -> Vec<String> {
 	// Load toml file
-	let toml = std::fs::read_to_string(&args.file).expect("cannot open toml file");
-	let mut toml = toml.parse::<Document>().expect("invalid toml file");
+	let mut toml_path = args.dir.clone();
+	toml_path.push("Cargo.toml");
+	println!("- Updating {}", toml_path.display());
+	let toml = std::fs::read_to_string(&toml_path).expect("cannot open root toml file");
+	let mut toml = toml.parse::<Document>().expect("invalid root toml file");
 
 	// remove `workspace.exclude`
+	println!("  - Removing `workspace.exclude`");
 	let Some(Item::Table(workspace)) = toml.get_mut("workspace") else {
         panic!("cannot get table [workspace]");
     };
 	workspace.remove("exclude");
 
 	// filter `workspace.members`
+	println!("  - Cleaning up `workspace.members`");
 	let Some(Item::Value(Value::Array(members))) = workspace.get_mut("members") else {
         panic!("cannot get array `members`");
     };
 
+	let mut runtime_list = Vec::new();
 	let mut indices_to_remove: Vec<_> = members
 		.iter()
 		.enumerate()
@@ -68,6 +99,7 @@ fn main() {
 			let member = member.value();
 
 			if member.starts_with("runtime/moon") {
+				runtime_list.push(member.clone());
 				None
 			} else {
 				Some(i)
@@ -83,19 +115,7 @@ fn main() {
 	// - if `path` is "primitives/rpc/evm-tracing-events", add "runtime-1600" feature
 	// - if `path` is one of the shared crates, replace by shared path
 	// - otherwise replace by git dep
-	let shared = [
-		"primitives/rpc/evm-tracing-events",
-		"runtime/evm_tracer",
-		"primitives/rpc/debug",
-		"primitives/ext",
-	];
-	let ignore_git = [
-		"runtime/moonbeam",
-		"runtime/moonriver",
-		"runtime/moonbase",
-		"runtime/common",
-	];
-
+	println!("  - Updating `workspace.dependencies`");
 	let Some(Item::Table(dependencies)) = workspace.get_mut("dependencies") else {
         panic!("cannot get table `dependencies`");
     };
@@ -119,13 +139,13 @@ fn main() {
         };
 
 		// If this is a shared crate, update the path and stop there.
-		if shared.contains(&path.value().as_str()) {
+		if SHARED_PATH.contains(&path.value().as_str()) {
 			*path = Formatted::new(format!("shared/{}", path.value()));
 			continue;
 		}
 
 		// Otherwise we need to change from path to git dep
-		if ignore_git.contains(&path.value().as_str()) {
+		if LOCAL_PATH.contains(&path.value().as_str()) {
 			continue;
 		}
 
@@ -142,5 +162,25 @@ fn main() {
 	}
 
 	// write modified toml to disk
-	std::fs::write(&args.file, toml.to_string()).expect("cannot write updated toml");
+	std::fs::write(&toml_path, toml.to_string()).expect("cannot write updated toml");
+
+	runtime_list
+}
+
+fn update_runtime_toml(path: &Path) {
+	println!("- Enabling evm-tracing feature in {}", path.display());
+	let toml = std::fs::read_to_string(&path).expect("cannot open runtime toml file");
+	let mut toml = toml.parse::<Document>().expect("invalid runtime toml file");
+
+	let Some(Item::Table(features)) = toml.get_mut("features") else {
+		panic!("cannot get features table");
+	};
+
+	let Some(Item::Value(Value::Array(default_features))) = features.get_mut("default") else {
+		panic!("cannot get default features array");
+	};
+
+	default_features.push("evm-tracing");
+
+	std::fs::write(&path, toml.to_string()).expect("cannot write updated toml");
 }

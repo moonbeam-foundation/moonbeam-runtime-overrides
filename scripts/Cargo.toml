@@ -6,8 +6,8 @@ license = "GPL-3.0-only"
 version = "0.8.4"
 
 [[bin]]
-name = "migrate-toml"
-path = "migrate-toml.rs"
+name = "migrate-imported"
+path = "migrate-imported.rs"
 
 [dependencies]
 toml_edit = "0.19.3"
