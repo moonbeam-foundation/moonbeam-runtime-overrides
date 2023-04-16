@@ -77,15 +77,15 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 	// remove `workspace.exclude`
 	println!("  - Removing `workspace.exclude`");
 	let Some(Item::Table(workspace)) = toml.get_mut("workspace") else {
-        panic!("cannot get table [workspace]");
-    };
+		panic!("cannot get table [workspace]");
+	};
 	workspace.remove("exclude");
 
 	// filter `workspace.members`
 	println!("  - Cleaning up `workspace.members`");
 	let Some(Item::Value(Value::Array(members))) = workspace.get_mut("members") else {
-        panic!("cannot get array `members`");
-    };
+		panic!("cannot get array `members`");
+	};
 
 	let mut runtime_list = Vec::new();
 	let mut indices_to_remove: Vec<_> = members
@@ -93,8 +93,8 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 		.enumerate()
 		.filter_map(|(i, member)| {
 			let Value::String(member) = member else {
-            return None;
-        };
+			return None;
+		};
 
 			let member = member.value();
 
@@ -117,26 +117,26 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 	// - otherwise replace by git dep
 	println!("  - Updating `workspace.dependencies`");
 	let Some(Item::Table(dependencies)) = workspace.get_mut("dependencies") else {
-        panic!("cannot get table `dependencies`");
-    };
+		panic!("cannot get table `dependencies`");
+	};
 
 	for (dep_name, dep_table) in dependencies.iter_mut() {
 		let Item::Value(Value::InlineTable(dep_table)) = dep_table else {
-            continue
-        };
+			continue
+		};
 
 		// Add feature "runtime-1600" to "evm-tracing-event"
 		if dep_name == "evm-tracing-events" {
 			let Value::Array(features) = dep_table.get_or_insert("features", Array::new()) else {
-                panic!("expected features of `{dep_name}` to be an array or missing");
-            };
+				panic!("expected features of `{dep_name}` to be an array or missing");
+			};
 			features.push("runtime-1600");
 		}
 
 		// No path => not moonbeam crate.
 		let Some(Value::String(ref mut path)) = dep_table.get_mut("path") else {
-            continue
-        };
+			continue
+		};
 
 		// If this is a shared crate, update the path and stop there.
 		if SHARED_PATH.contains(&path.value().as_str()) {
