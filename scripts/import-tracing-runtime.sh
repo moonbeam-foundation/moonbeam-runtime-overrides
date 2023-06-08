@@ -38,4 +38,7 @@ cd scripts
 cargo run -q --bin migrate-imported -- --dir ../tracing/$SPEC_VERSION --repo "https://github.com/PureStake/moonbeam" $GIT_DEP_REF
 cd ..
 
+echo "Running ./scripts/update-tracing-runtime-lock.sh $SPEC_VERSION ..."
+source ./scripts/update-tracing-runtime-lock.sh $SPEC_VERSION
+
 echo "Done !"
