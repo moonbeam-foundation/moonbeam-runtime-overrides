@@ -11,6 +11,7 @@ SRTOOL_IMAGE="paritytech/srtool:1.66.1"
 # Arguments
 VERSION=$1
 RUNTIME_NAME_FILTER=${2:-"[a-z]"}
+CARGO_BUILD_JOBS=${3:-"8"}
 
 # Download srtool image
 docker pull $SRTOOL_IMAGE
@@ -37,6 +38,7 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
           --rm \
           -e PACKAGE=$RUNTIME_NAME-runtime \
           -e RUNTIME_DIR=$RUNTIME_DIR \
+          -e CARGO_BUILD_JOBS=$CARGO_BUILD_JOBS \
           -v $PWD:/build \
           $SRTOOL_IMAGE build --app --json -cM"
 

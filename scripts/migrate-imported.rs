@@ -168,19 +168,20 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 }
 
 fn update_runtime_toml(path: &Path) {
-	println!("- Enabling evm-tracing feature in {}", path.display());
 	let toml = std::fs::read_to_string(&path).expect("cannot open runtime toml file");
 	let mut toml = toml.parse::<Document>().expect("invalid runtime toml file");
-
+	
+	println!("- Enabling evm-tracing feature in {}", path.display());
 	let Some(Item::Table(features)) = toml.get_mut("features") else {
 		panic!("cannot get features table");
 	};
-
 	let Some(Item::Value(Value::Array(default_features))) = features.get_mut("default") else {
 		panic!("cannot get default features array");
 	};
-
 	default_features.push("evm-tracing");
+
+	println!("- Removing dev-dependencies in {}", path.display());
+	toml.remove("dev-dependencies");
 
 	std::fs::write(&path, toml.to_string()).expect("cannot write updated toml");
 }
