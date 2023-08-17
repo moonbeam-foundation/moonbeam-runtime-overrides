@@ -15,7 +15,7 @@
 // along with Moonbeam.  If not, see <http://www.gnu.org/licenses/>.
 
 use {
-	clap::Parser,
+	clap::{Parser, ValueEnum},
 	std::path::{Path, PathBuf},
 	toml_edit::{Array, Document, Formatted, Item, Value},
 };
@@ -31,6 +31,14 @@ struct Args {
 	branch: Option<String>,
 	#[arg(long)]
 	repo: String,
+	#[arg(short = 't', long, value_enum)]
+	runtime_type: RuntimeType
+}
+
+#[derive(Clone, Copy, Debug, Eq, PartialEq, ValueEnum)]
+enum RuntimeType {
+	Rpc,	
+	Tracing,
 }
 
 const SHARED_PATH: [&str; 4] = [
@@ -61,7 +69,7 @@ fn main() {
 		let mut path = args.dir.clone();
 		path.push(runtime);
 		path.push("Cargo.toml");
-		update_runtime_toml(&path)
+		update_runtime_toml(&path, args.runtime_type)
 	}
 }
 
@@ -126,7 +134,7 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 		};
 
 		// Add feature "runtime-1600" to "evm-tracing-event"
-		if dep_name == "evm-tracing-events" {
+		if args.runtime_type == RuntimeType::Tracing && dep_name == "evm-tracing-events" {
 			let Value::Array(features) = dep_table.get_or_insert("features", Array::new()) else {
 				panic!("expected features of `{dep_name}` to be an array or missing");
 			};
@@ -139,7 +147,7 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 		};
 
 		// If this is a shared crate, update the path and stop there.
-		if SHARED_PATH.contains(&path.value().as_str()) {
+		if args.runtime_type == RuntimeType::Tracing && SHARED_PATH.contains(&path.value().as_str()) {
 			*path = Formatted::new(format!("shared/{}", path.value()));
 			continue;
 		}
@@ -167,18 +175,20 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 	runtime_list
 }
 
-fn update_runtime_toml(path: &Path) {
+fn update_runtime_toml(path: &Path, runtime_type: RuntimeType) {
 	let toml = std::fs::read_to_string(&path).expect("cannot open runtime toml file");
 	let mut toml = toml.parse::<Document>().expect("invalid runtime toml file");
 	
-	println!("- Enabling evm-tracing feature in {}", path.display());
-	let Some(Item::Table(features)) = toml.get_mut("features") else {
-		panic!("cannot get features table");
-	};
-	let Some(Item::Value(Value::Array(default_features))) = features.get_mut("default") else {
-		panic!("cannot get default features array");
-	};
-	default_features.push("evm-tracing");
+	if runtime_type == RuntimeType::Tracing {
+		println!("- Enabling evm-tracing feature in {}", path.display());
+		let Some(Item::Table(features)) = toml.get_mut("features") else {
+			panic!("cannot get features table");
+		};
+		let Some(Item::Value(Value::Array(default_features))) = features.get_mut("default") else {
+			panic!("cannot get default features array");
+		};
+		default_features.push("evm-tracing");
+	}
 
 	println!("- Removing dev-dependencies in {}", path.display());
 	toml.remove("dev-dependencies");
