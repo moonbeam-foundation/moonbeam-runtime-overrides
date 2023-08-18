@@ -24,8 +24,8 @@ Note that we speak of runtimes in the plural, because there are 3 different runt
 So, to import the new runtimes with chain spec `XXX`:
 
 1. Clone this git repository and create a branch `tracing-runtime-XXX` based on `main`
-1. Run the following command in the root of this git repository: `./scripts/import-tracing-runtime.sh XXX`
+1. Run the following command in the root of this git repository: `./scripts/import-runtime.sh tracing XXX`
 1. Commit new runtimes code
-1. Run command `./scripts/build-tracing-runtime.sh XXX`
+1. Run command `./scripts/build-runtime.sh tracing XXX`
 1. Commit wasm blob and json digest for each new runtime
 1. Push the branch `tracing-runtime-XXX` and submit a PR
