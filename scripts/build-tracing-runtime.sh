@@ -6,7 +6,7 @@ ALL_RUNTIMES_NAMES=(
     moonriver
     moonbeam
 )
-SRTOOL_IMAGE="paritytech/srtool:1.66.1"
+SRTOOL_IMAGE="paritytech/srtool:1.70.0"
 
 # Arguments
 VERSION=$1
