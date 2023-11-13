@@ -41,5 +41,5 @@ There are two actions to publish the tracing runtime on docker:
 2. Publish Docker (Legacy PureStake)
     publishes the tracing runtime to the legagy [purestake DockerHub registry](https://hub.docker.com/r/purestake/moonbeam-tracing/tags)
 
-Until the legagy docker registry is abandoned it is necessary to publish the image on both registries 
+Until the legacy docker registry is discontinued, it is requied to publish the image on both registries 
 
