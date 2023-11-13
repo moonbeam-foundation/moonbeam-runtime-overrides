@@ -12,7 +12,6 @@ on:
         default: "master"
 
 jobs:
-
   docker-moonbeam-tracing:
     runs-on: ubuntu-latest
     outputs:
@@ -46,7 +45,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=purestake/moonbeam-tracing
+          DOCKER_IMAGE=moonbeamfoundation/moonbeam-tracing
           DOCKER_TAG="${DOCKER_IMAGE}:${{ github.event.inputs.client_tag }}-${{ steps.get-last-spec-version.outputs.last_spec_version }}-${{ steps.get-sha.outputs.sha4 }}"
           DOCKER_LATEST_TAG="${DOCKER_IMAGE}:${{ github.event.inputs.client_tag }}-${{ steps.get-last-spec-version.outputs.last_spec_version }}-latest"
           echo ::set-output name=docker_tag::${DOCKER_TAG}
@@ -69,7 +68,7 @@ jobs:
         run: |
           mkdir build
           CLIENT_TAG=${{ github.event.inputs.client_tag }}
-          CLIENT_IMAGE="purestake/moonbeam:$CLIENT_TAG"
+          CLIENT_IMAGE="moonbeamfoundation/moonbeam:$CLIENT_TAG"
           docker create -ti --name dummy $CLIENT_IMAGE bash
           docker cp dummy:/moonbeam/moonbeam build/moonbeam
           docker rm -f dummy
@@ -119,4 +118,3 @@ jobs:
             org.opencontainers.image.created=${{ steps.prep.outputs.created }}
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.licenses=${{ github.event.repository.license.spdx_id }}
-      

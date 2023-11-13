@@ -18,7 +18,7 @@ else
   echo "Get moonbeam snapshot..."
   rm -rf tmp
   mkdir tmp
-  git clone https://github.com/PureStake/moonbeam --depth 1 -b $GIT_REF $MOONBEAM_PATH
+  git clone https://github.com/moonbeam-foundation/moonbeam --depth 1 -b $GIT_REF $MOONBEAM_PATH
 fi
 
 # Copy relevant files
@@ -35,7 +35,7 @@ rm -rf tracing/$SPEC_VERSION/runtime/relay-encoder
 
 echo "Run migration script"
 cd scripts
-cargo run -q --bin migrate-imported -- --dir ../tracing/$SPEC_VERSION --repo "https://github.com/PureStake/moonbeam" $GIT_DEP_REF
+cargo run -q --bin migrate-imported -- --dir ../tracing/$SPEC_VERSION --repo "https://github.com/moonbeam-foundation/moonbeam" $GIT_DEP_REF
 cd ..
 
 echo "Running ./scripts/update-tracing-runtime-lock.sh $SPEC_VERSION ..."
