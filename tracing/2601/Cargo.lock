@@ -15,7 +15,7 @@ dependencies = [
 [[package]]
 name = "account"
 version = "0.1.1"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "blake2-rfc",
  "impl-serde 0.3.2",
@@ -5207,7 +5207,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-core-primitives"
 version = "0.1.1"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "account",
  "fp-self-contained",
@@ -5249,7 +5249,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-relay-encoder"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "cumulus-primitives-core",
  "frame-system",
@@ -5284,7 +5284,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-rpc-primitives-txpool"
 version = "0.6.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "ethereum",
  "parity-scale-codec",
@@ -5490,7 +5490,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-xcm-benchmarks"
 version = "0.2.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6221,7 +6221,7 @@ dependencies = [
 [[package]]
 name = "pallet-asset-manager"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6505,7 +6505,7 @@ dependencies = [
 [[package]]
 name = "pallet-erc20-xcm-bridge"
 version = "1.0.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "environmental",
  "ethereum-types",
@@ -6550,7 +6550,7 @@ dependencies = [
 [[package]]
 name = "pallet-ethereum-xcm"
 version = "1.0.0-dev"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -6613,7 +6613,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-author-mapping"
 version = "0.2.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6634,7 +6634,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-balances-erc20"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6656,7 +6656,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-batch"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "evm",
  "fp-evm",
@@ -6695,7 +6695,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-call-permit"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "evm",
  "fp-evm",
@@ -6717,7 +6717,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-collective"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "evm",
  "fp-evm",
@@ -6741,7 +6741,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-conviction-voting"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6761,7 +6761,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-crowdloan-rewards"
 version = "0.6.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6780,7 +6780,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-democracy"
 version = "0.2.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6813,7 +6813,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-gmp"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "cumulus-primitives-core",
  "evm",
@@ -6843,7 +6843,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-identity"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "enumflags2",
  "evm",
@@ -6873,7 +6873,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-parachain-staking"
 version = "1.0.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6894,7 +6894,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-preimage"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6914,7 +6914,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-proxy"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "evm",
  "fp-evm",
@@ -6936,7 +6936,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-randomness"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6958,7 +6958,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-referenda"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6978,7 +6978,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-registry"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6995,7 +6995,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-relay-encoder"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "cumulus-primitives-core",
  "fp-evm",
@@ -7037,7 +7037,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-xcm-transactor"
 version = "0.2.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "cumulus-primitives-core",
  "evm",
@@ -7061,7 +7061,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-xcm-utils"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7083,7 +7083,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-xtokens"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7105,7 +7105,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompileset-assets-erc20"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7218,7 +7218,7 @@ dependencies = [
 [[package]]
 name = "pallet-moonbeam-orbiters"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -7250,7 +7250,7 @@ dependencies = [
 [[package]]
 name = "pallet-parachain-staking"
 version = "3.0.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -7300,7 +7300,7 @@ dependencies = [
 [[package]]
 name = "pallet-proxy-genesis-companion"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -7626,7 +7626,7 @@ dependencies = [
 [[package]]
 name = "pallet-xcm-transactor"
 version = "0.2.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "cumulus-primitives-core",
  "frame-benchmarking",
@@ -8279,7 +8279,7 @@ checksum = "5b40af805b3121feab8a3c29f04d8ad262fa8e0561883e7653e024ae4479e6de"
 [[package]]
 name = "precompile-utils"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "affix",
  "environmental",
@@ -8307,7 +8307,7 @@ dependencies = [
 [[package]]
 name = "precompile-utils-macro"
 version = "0.1.0"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "case",
  "num_enum 0.5.11",
@@ -13077,7 +13077,7 @@ dependencies = [
 [[package]]
 name = "xcm-primitives"
 version = "0.1.1"
-source = "git+https://github.com/PureStake/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2601#ac6aee3c3beec560a9266e63c1b389ca9c521505"
 dependencies = [
  "cumulus-primitives-core",
  "ethereum",
