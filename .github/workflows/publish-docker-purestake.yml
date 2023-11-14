@@ -1,4 +1,4 @@
-name: Publish Docker
+name: Publish Docker (Legacy PureStake)
 
 on:
   workflow_dispatch:
@@ -45,7 +45,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=moonbeamfoundation/moonbeam-tracing
+          DOCKER_IMAGE=purestake/moonbeam-tracing
           DOCKER_TAG="${DOCKER_IMAGE}:${{ github.event.inputs.client_tag }}-${{ steps.get-last-spec-version.outputs.last_spec_version }}-${{ steps.get-sha.outputs.sha4 }}"
           DOCKER_LATEST_TAG="${DOCKER_IMAGE}:${{ github.event.inputs.client_tag }}-${{ steps.get-last-spec-version.outputs.last_spec_version }}-latest"
           echo ::set-output name=docker_tag::${DOCKER_TAG}
@@ -68,7 +68,7 @@ jobs:
         run: |
           mkdir build
           CLIENT_TAG=${{ github.event.inputs.client_tag }}
-          CLIENT_IMAGE="moonbeamfoundation/moonbeam:$CLIENT_TAG"
+          CLIENT_IMAGE="purestake/moonbeam:$CLIENT_TAG"
           docker create -ti --name dummy $CLIENT_IMAGE bash
           docker cp dummy:/moonbeam/moonbeam build/moonbeam
           docker rm -f dummy
@@ -92,11 +92,11 @@ jobs:
           version: latest
           driver-opts: |
             image=moby/buildkit:master
-      - name: Login to DockerHub
+      - name: Login to DockerHub (LEGACY PureStake)
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.MBF_DOCKERHUB_USERNAME }}
-          password: ${{ secrets.MBF_DOCKERHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Build and push moonbeam-tracing
         id: docker_build
         if: ${{ steps.check-docker-image.outputs.image_exists }} == false

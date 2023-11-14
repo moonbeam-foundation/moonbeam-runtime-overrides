@@ -29,3 +29,17 @@ So, to import the new runtimes with chain spec `XXX`:
 1. Run command `./scripts/build-tracing-runtime.sh XXX`
 1. Commit wasm blob and json digest for each new runtime
 1. Push the branch `tracing-runtime-XXX` and submit a PR
+
+### Publishing the docker runtime
+
+There are two actions to publish the tracing runtime on docker:
+
+1. Publish Docker 
+    publishes the tracing runtime to the [moonbeamfoundation DockerHub registry](https://hub.docker.com/r/moonbeamfoundation/moonbeam-tracing/tags)
+    
+
+2. Publish Docker (Legacy PureStake)
+    publishes the tracing runtime to the legagy [purestake DockerHub registry](https://hub.docker.com/r/purestake/moonbeam-tracing/tags)
+
+Until the legacy docker registry is discontinued, it is requied to publish the image on both registries 
+
