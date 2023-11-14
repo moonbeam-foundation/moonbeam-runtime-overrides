@@ -24,8 +24,8 @@ jobs:
       - name: Get Sha
         id: get-sha
         run: |
-          echo ::set-output name=sha::$(git log -1 --format="%H")
-          echo ::set-output name=sha4::$(git log -1 --format="%H" | cut -c1-4)
+          echo "sha::$(git log -1 --format="%H")" >> "$GITHUB_OUTPUT"
+          echo "sha4::$(git log -1 --format="%H" | cut -c1-4)" >> "$GITHUB_OUTPUT"
       - name: Get last tracing runtime spec version
         id: get-last-spec-version
         run: |
@@ -39,7 +39,7 @@ jobs:
                 fi
               fi
           done
-          echo ::set-output name=last_spec_version::$MAX
+          echo "last_spec_version::$MAX" >> "$GITHUB_OUTPUT"
           echo "last_spec_version: $MAX"
 
       - name: Prepare
@@ -48,15 +48,15 @@ jobs:
           DOCKER_IMAGE=purestake/moonbeam-tracing
           DOCKER_TAG="${DOCKER_IMAGE}:${{ github.event.inputs.client_tag }}-${{ steps.get-last-spec-version.outputs.last_spec_version }}-${{ steps.get-sha.outputs.sha4 }}"
           DOCKER_LATEST_TAG="${DOCKER_IMAGE}:${{ github.event.inputs.client_tag }}-${{ steps.get-last-spec-version.outputs.last_spec_version }}-latest"
-          echo ::set-output name=docker_tag::${DOCKER_TAG}
-          echo ::set-output name=docker_latest_tag::${DOCKER_LATEST_TAG}
-          echo ::set-output name=created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          echo "docker_tag::${DOCKER_TAG}" >> "$GITHUB_OUTPUT"
+          echo "docker_latest_tag::${DOCKER_LATEST_TAG}" >> "$GITHUB_OUTPUT"
+          echo "created::$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_OUTPUT"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Check existing docker image
         id: check-docker-image
         run: |
-          echo ::set-output name=image_exists::$(docker manifest inspect ${{ steps.prep.outputs.docker_tag }} > /dev/null && echo "true" || echo "false")
+          echo "image_exists::$(docker manifest inspect ${{ steps.prep.outputs.docker_tag }} > /dev/null && echo "true" || echo "false")" >> "$GITHUB_OUTPUT"
       - name: Display variables
         run: |
           echo git_ref: ${{ github.event.inputs.overrides_branch }}
