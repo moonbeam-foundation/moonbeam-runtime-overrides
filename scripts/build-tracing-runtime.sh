@@ -31,7 +31,7 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
 
       if [[ "$VERSION" == "local" ]]; then
         cargo build -p $RUNTIME_NAME-runtime
-        cp target/debug/wbuild/$RUNTIME_NAME-runtime/${RUNTIME_NAME}_runtime.compact.compressed.wasm ../../../../wasm/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.wasm
+        cp target/debug/wbuild/$RUNTIME_NAME-runtime/${RUNTIME_NAME}_runtime.wasm ../../../../wasm/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.wasm
       else
         CMD="docker run \
           -i \
