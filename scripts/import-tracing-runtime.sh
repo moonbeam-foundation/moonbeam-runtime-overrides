@@ -42,4 +42,9 @@ cd ..
 echo "Running ./scripts/update-tracing-runtime-lock.sh $SPEC_VERSION ..."
 source ./scripts/update-tracing-runtime-lock.sh $SPEC_VERSION
 
+echo "Format with cargo fmt"
+pushd tracing/$SPEC_VERSION
+cargo fmt
+popd
+
 echo "Done !"
