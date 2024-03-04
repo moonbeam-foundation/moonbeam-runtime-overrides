@@ -13,7 +13,4 @@ echo
 cargo fetch
 echo 
 
-echo "Removing shared directory in tracing/${VERSION}"
-rm -rf shared
-
 cd ../..
