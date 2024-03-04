@@ -5,7 +5,6 @@ on:
     types: [opened, edited, synchronize]
 
 jobs:
-
   list-spec-versions:
     if: github.event.pull_request.draft == false
     runs-on: ubuntu-latest
@@ -13,7 +12,7 @@ jobs:
       spec_versions: ${{ steps.list-versions.outputs.spec_versions }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: List spec versions
@@ -37,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Find un-copyrighted files
@@ -55,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Setup editorconfig checker
@@ -80,7 +79,7 @@ jobs:
         spec_version: ${{ fromJson(needs.list-spec-versions.outputs.spec_versions) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - uses: dorny/paths-filter@v2
@@ -98,6 +97,6 @@ jobs:
       #  if: steps.filter.outputs.edited == 'true' || steps.filter.outputs.shared == 'true'
       #  run: cd tracing/${{ matrix.spec_version }} && cargo test --release --all
       - name: "Check wasm blob"
-        if:  steps.filter.outputs.edited == 'true' || steps.filter.outputs.shared == 'true'
+        if: steps.filter.outputs.edited == 'true' || steps.filter.outputs.shared == 'true'
         run: |
           ./scripts/check-tracing-runtime.sh ${{ matrix.spec_version }}
