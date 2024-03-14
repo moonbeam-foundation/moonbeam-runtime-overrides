@@ -177,7 +177,7 @@ fn update_runtime_toml(path: &Path) {
 	let toml = std::fs::read_to_string(&path).expect("cannot open runtime toml file");
 	let mut toml = toml.parse::<Document>().expect("invalid runtime toml file");
 
-	println!("- Enabling X feature in {}", path.display());
+	println!("- Enabling evm-tracing feature in {}", path.display());
 	let Some(Item::Table(features)) = toml.get_mut("features") else {
 		panic!("cannot get features table");
 	};
