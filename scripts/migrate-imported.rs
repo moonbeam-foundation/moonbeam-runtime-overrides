@@ -127,7 +127,7 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 
 		// Add feature "runtime-1600" to "evm-tracing-event"
 		if dep_name == "evm-tracing-events" {
-			let Value::Array(ref mut features) = dep_table.get_or_insert("features", Array::new()) else {
+			let Value::Array(features) = dep_table.get_or_insert("features", Array::new()) else {
 				panic!("expected features of `{dep_name}` to be an array or missing");
 			};
 			features.push("runtime-1600");
