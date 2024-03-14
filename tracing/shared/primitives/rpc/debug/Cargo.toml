@@ -27,6 +27,7 @@ default = [ "std" ]
 
 before_700 = []
 _700_to_1200 = []
+runtime-2900 = []
 
 std = [
 	"parity-scale-codec/std",

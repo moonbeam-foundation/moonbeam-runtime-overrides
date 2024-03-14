@@ -16,7 +16,7 @@
 
 use {
 	clap::Parser,
-	std::path::{Path, PathBuf},
+	std::{borrow::{Borrow, BorrowMut}, ops::DerefMut, path::{Path, PathBuf}},
 	toml_edit::{Array, Document, Formatted, Item, Value},
 };
 
@@ -93,8 +93,8 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 		.enumerate()
 		.filter_map(|(i, member)| {
 			let Value::String(member) = member else {
-			return None;
-		};
+				return None;
+			};
 
 			let member = member.value();
 
@@ -122,20 +122,26 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 
 	for (dep_name, dep_table) in dependencies.iter_mut() {
 		let Item::Value(Value::InlineTable(dep_table)) = dep_table else {
-			continue
+			continue;
 		};
 
 		// Add feature "runtime-1600" to "evm-tracing-event"
 		if dep_name == "evm-tracing-events" {
-			let Value::Array(features) = dep_table.get_or_insert("features", Array::new()) else {
+			let Value::Array(ref mut features) = dep_table.get_or_insert("features", Array::new()) else {
 				panic!("expected features of `{dep_name}` to be an array or missing");
 			};
 			features.push("runtime-1600");
 		}
+		if dep_name == "moonbeam-rpc-primitives-debug" {
+			let Value::Array(ref mut features) = dep_table.get_or_insert("features", Array::new()) else {
+				panic!("expected features of `{dep_name}` to be an array or missing");
+			};
+			features.push("runtime-2900");
+		}
 
 		// No path => not moonbeam crate.
 		let Some(Value::String(ref mut path)) = dep_table.get_mut("path") else {
-			continue
+			continue;
 		};
 
 		// If this is a shared crate, update the path and stop there.
@@ -170,8 +176,8 @@ fn update_root_toml(args: &Args) -> Vec<String> {
 fn update_runtime_toml(path: &Path) {
 	let toml = std::fs::read_to_string(&path).expect("cannot open runtime toml file");
 	let mut toml = toml.parse::<Document>().expect("invalid runtime toml file");
-	
-	println!("- Enabling evm-tracing feature in {}", path.display());
+
+	println!("- Enabling X feature in {}", path.display());
 	let Some(Item::Table(features)) = toml.get_mut("features") else {
 		panic!("cannot get features table");
 	};
