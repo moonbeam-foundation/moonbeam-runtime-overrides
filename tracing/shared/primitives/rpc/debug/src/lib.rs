@@ -28,7 +28,25 @@ use ethereum::TransactionV2 as Transaction;
 use ethereum_types::{H160, H256, U256};
 use sp_std::vec::Vec;
 
-#[cfg(all(not(feature = "before_700"), not(feature = "_700_to_1200")))]
+#[cfg(feature = "runtime-2900")]
+sp_api::decl_runtime_apis! {
+	#[api_version(5)]
+	pub trait DebugRuntimeApi {
+		fn trace_transaction(
+			extrinsics: Vec<Block::Extrinsic>,
+			transaction: &Transaction,
+			transaction: &Block::Header,
+		) -> Result<(), sp_runtime::DispatchError>;
+
+		fn trace_block(
+			extrinsics: Vec<Block::Extrinsic>,
+			known_transactions: Vec<H256>,
+			transaction: &Block::Header,
+		) -> Result<(), sp_runtime::DispatchError>;
+	}
+}
+
+#[cfg(all(not(feature = "before_700"), not(feature = "_700_to_1200"), not(feature = "runtime-2900")))]
 sp_api::decl_runtime_apis! {
 	#[api_version(4)]
 	pub trait DebugRuntimeApi {
