@@ -17,6 +17,31 @@
 #[macro_export]
 macro_rules! impl_runtime_apis_plus_common {
 	{$($custom:tt)*} => {
+
+		#[cfg(feature = "evm-tracing")]
+		// Helper function to replay the "on_idle" hook for all pallets, we need this for
+		// evm-tracing because some ethereum-xcm transactions might be executed at on_idle.
+		//
+		// We need to make sure that we replay on_idle exactly the same way as the
+		// original block execution, but unfortunatly frame executive diosn't provide a function
+		// to replay only on_idle, so we need to copy here some code inside frame executive.
+		fn replay_on_idle() {
+			use frame_system::pallet_prelude::BlockNumberFor;
+
+			let weight = <frame_system::Pallet<Runtime>>::block_weight();
+			let max_weight = <
+					<Runtime as frame_system::Config>::BlockWeights as
+					frame_support::traits::Get<_>
+				>::get().max_block;
+			let remaining_weight = max_weight.saturating_sub(weight.total());
+			if remaining_weight.all_gt(Weight::zero()) {
+				let _ = <AllPalletsWithSystem as OnIdle<BlockNumberFor<Runtime>>>::on_idle(
+					<frame_system::Pallet<Runtime>>::block_number(),
+					remaining_weight,
+				);
+			}
+		}
+
 		impl_runtime_apis! {
 			$($custom)*
 
@@ -132,15 +157,28 @@ macro_rules! impl_runtime_apis_plus_common {
 								}
 								_ => Executive::apply_extrinsic(ext),
 							};
-							if let Some(EthereumXcmTracingStatus::TransactionExited) = unhashed::get(
-								ETHEREUM_XCM_TRACING_STORAGE_KEY
-							) {
-								return Ok(());
-							}
+							
 						}
-						Err(sp_runtime::DispatchError::Other(
-							"Failed to find Ethereum transaction among the extrinsics.",
-						))
+
+						if let Some(EthereumXcmTracingStatus::Transaction(_)) = unhashed::get(
+							ETHEREUM_XCM_TRACING_STORAGE_KEY
+						) {
+							// If the transaction was not found, it might be
+							// an eth-xcm transaction that was executed at on_idle
+							replay_on_idle();
+						}
+
+						if let Some(EthereumXcmTracingStatus::TransactionExited) = unhashed::get(
+							ETHEREUM_XCM_TRACING_STORAGE_KEY
+						) {
+							// The transaction was found
+							Ok(())
+						} else {
+							// The transaction was not-found
+							Err(sp_runtime::DispatchError::Other(
+								"Failed to find Ethereum transaction among the extrinsics.",
+							))
+						}
 					}
 					#[cfg(not(feature = "evm-tracing"))]
 					Err(sp_runtime::DispatchError::Other(
@@ -186,6 +224,10 @@ macro_rules! impl_runtime_apis_plus_common {
 								}
 							};
 						}
+
+						// If the transaction was not found, it might be
+						// an eth-xcm transaction that was executed at on_idle
+						replay_on_idle();
 
 						Ok(())
 					}
