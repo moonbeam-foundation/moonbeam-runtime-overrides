@@ -36,7 +36,7 @@ macro_rules! impl_moonbeam_xcm_call_tracing {
 							RuntimeCall::EthereumXcm(pallet_ethereum_xcm::Call::transact { xcm_transaction }) |
 							RuntimeCall::EthereumXcm(pallet_ethereum_xcm::Call::transact_through_proxy {
 								xcm_transaction, ..
-							 }),
+							}),
 							RawOrigin::Signed(account_id)
 						) => {
 							use crate::EthereumXcm;
