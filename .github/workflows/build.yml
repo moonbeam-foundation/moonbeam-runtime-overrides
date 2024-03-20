@@ -72,7 +72,8 @@ jobs:
   check-tracing-runtime:
     name: "Check tracing runtime"
     if: github.event.pull_request.draft == false
-    runs-on: ubuntu-latest
+    runs-on:
+      labels: bare-metal
     needs: ["list-spec-versions"]
     strategy:
       matrix:
