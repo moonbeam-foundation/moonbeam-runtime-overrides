@@ -19,7 +19,7 @@ jobs:
         run: |
           ./scripts/import-tracing-runtime.sh ${{ github.event.inputs.spec_version }} ${{ github.event.inputs.moonbeam_git_ref }}
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v6
         with:
           branch: "tracing-runtime-${{ github.event.inputs.spec_version }}"
           commit-message: "Add tracing runtime ${{ github.event.inputs.spec_version }}"
