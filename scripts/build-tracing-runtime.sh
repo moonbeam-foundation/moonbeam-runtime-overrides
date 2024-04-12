@@ -38,6 +38,7 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
           --rm \
           -e PACKAGE=$RUNTIME_NAME-runtime \
           -e RUNTIME_DIR=$RUNTIME_DIR \
+          -e WASM_BUILD_STD=0 \
           -e CARGO_BUILD_JOBS=$CARGO_BUILD_JOBS \
           -v $PWD:/build \
           $SRTOOL_IMAGE build --app --json -cM"
