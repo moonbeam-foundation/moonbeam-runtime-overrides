@@ -65,3 +65,5 @@ done
 
 # Move back to git repository root
 cd ../../../..
+# cleanup
+rm -rf tmp
