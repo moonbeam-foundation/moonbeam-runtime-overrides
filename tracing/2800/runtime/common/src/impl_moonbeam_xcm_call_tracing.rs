@@ -96,13 +96,7 @@ macro_rules! impl_moonbeam_xcm_call_tracing {
 										}
 										dispatch_call()
 									},
-									// Tracing a transaction that has already been found and
-									// executed. There's no need to dispatch the rest of the
-									// calls.
-									EthereumXcmTracingStatus::TransactionExited => Ok(crate::PostDispatchInfo {
-										actual_weight: None,
-										pays_fee: frame_support::pallet_prelude::Pays::No,
-									}),
+									_ => unreachable!()
 								},
 								// This runtime instance is importing a block.
 								None => dispatch_call()
