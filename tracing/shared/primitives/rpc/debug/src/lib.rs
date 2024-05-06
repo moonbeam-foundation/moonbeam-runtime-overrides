@@ -59,6 +59,18 @@ sp_api::decl_runtime_apis! {
 			extrinsics: Vec<Block::Extrinsic>,
 			known_transactions: Vec<H256>,
 		) -> Result<(), sp_runtime::DispatchError>;
+
+		fn trace_call(
+			from: H160,
+			to: H160,
+			data: Vec<u8>,
+			value: U256,
+			gas_limit: U256,
+			max_fee_per_gas: Option<U256>,
+			max_priority_fee_per_gas: Option<U256>,
+			nonce: Option<U256>,
+			access_list: Option<Vec<(H160, Vec<H256>)>>,
+		) -> Result<(), sp_runtime::DispatchError>;
 	}
 }
 

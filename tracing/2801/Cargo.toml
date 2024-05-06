@@ -18,72 +18,72 @@ repository = "https://github.com/PureStake/moonbeam"
 # - "client" dependencies are only used in the client, and thus don't need to be no_std compatible.
 
 # Moonbeam (wasm)
-account = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
+account = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
 evm-tracing-events = { path = "shared/primitives/rpc/evm-tracing-events", default-features = false , features = ["runtime-1600"] }
-moonbeam-core-primitives = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
+moonbeam-core-primitives = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
 moonbeam-primitives-ext = { path = "shared/primitives/ext", default-features = false }
 moonbeam-rpc-primitives-debug = { path = "shared/primitives/rpc/debug", default-features = false }
-moonbeam-rpc-primitives-txpool = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-storage-proof-primitives = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
+moonbeam-rpc-primitives-txpool = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+storage-proof-primitives = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
 
 moonbeam-evm-tracer = { path = "shared/runtime/evm_tracer", default-features = false }
-moonbeam-relay-encoder = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
+moonbeam-relay-encoder = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
 moonbeam-runtime-common = { path = "runtime/common", default-features = false }
 
-moonbeam-xcm-benchmarks = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-asset-manager = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-erc20-xcm-bridge = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-ethereum-xcm = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
+moonbeam-xcm-benchmarks = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-asset-manager = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-erc20-xcm-bridge = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-ethereum-xcm = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
 
-pallet-evm-precompile-author-mapping = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-balances-erc20 = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-batch = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-call-permit = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-collective = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-conviction-voting = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-crowdloan-rewards = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-democracy = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-gmp = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-identity = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-parachain-staking = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-preimage = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-proxy = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-randomness = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-referenda = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-registry = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-relay-encoder = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-relay-verifier = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-xcm-transactor = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-xcm-utils = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompile-xtokens = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-evm-precompileset-assets-erc20 = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-moonbeam-orbiters = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-parachain-staking = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-precompile-benchmarks = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-proxy-genesis-companion = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-xcm-transactor = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-pallet-moonbeam-lazy-migrations = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-precompile-utils = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-xcm-primitives = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
+pallet-evm-precompile-author-mapping = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-balances-erc20 = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-batch = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-call-permit = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-collective = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-conviction-voting = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-crowdloan-rewards = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-democracy = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-gmp = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-identity = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-parachain-staking = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-preimage = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-proxy = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-randomness = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-referenda = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-registry = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-relay-encoder = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-relay-verifier = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-xcm-transactor = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-xcm-utils = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompile-xtokens = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-evm-precompileset-assets-erc20 = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-moonbeam-orbiters = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-parachain-staking = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-precompile-benchmarks = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-proxy-genesis-companion = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-xcm-transactor = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+pallet-moonbeam-lazy-migrations = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+precompile-utils = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+xcm-primitives = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
 
 pallet-crowdloan-rewards = { git = "https://github.com/moonbeam-foundation/crowdloan-rewards", branch = "moonbeam-polkadot-v1.3.0", default-features = false }
 
 # Moonbeam (client)
-moonbeam-cli = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-cli-opt = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-service = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
+moonbeam-cli = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-cli-opt = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-service = { default-features = false , git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
 
-manual-xcm-rpc = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-client-evm-tracing = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-finality-rpc = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-rpc-core-debug = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-rpc-core-trace = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-rpc-core-txpool = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-rpc-core-types = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-rpc-debug = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-rpc-trace = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-rpc-txpool = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
-moonbeam-vrf = { git = "https://github.com/moonbeam-foundation/moonbeam", rev = "runtime-2801" }
+manual-xcm-rpc = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-client-evm-tracing = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-finality-rpc = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-rpc-core-debug = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-rpc-core-trace = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-rpc-core-txpool = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-rpc-core-types = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-rpc-debug = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-rpc-trace = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-rpc-txpool = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
+moonbeam-vrf = { git = "https://github.com/moonbeam-foundation/moonbeam", branch = "crystalin-2801-trace-call" }
 
 moonbase-runtime = { path = "runtime/moonbase" }
 moonbeam-runtime = { path = "runtime/moonbeam" }

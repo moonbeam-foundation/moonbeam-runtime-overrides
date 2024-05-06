@@ -15,7 +15,7 @@ dependencies = [
 [[package]]
 name = "account"
 version = "0.1.1"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "blake2-rfc",
  "impl-serde 0.3.2",
@@ -5383,7 +5383,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-core-primitives"
 version = "0.1.1"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "account",
  "fp-self-contained",
@@ -5426,7 +5426,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-relay-encoder"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "cumulus-primitives-core",
  "frame-system",
@@ -5461,7 +5461,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-rpc-primitives-txpool"
 version = "0.6.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "ethereum",
  "parity-scale-codec",
@@ -5677,7 +5677,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-runtime-common"
 version = "0.8.0-dev"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "account",
  "cumulus-pallet-xcmp-queue",
@@ -5741,7 +5741,7 @@ dependencies = [
 [[package]]
 name = "moonbeam-xcm-benchmarks"
 version = "0.2.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6484,7 +6484,7 @@ dependencies = [
 [[package]]
 name = "pallet-asset-manager"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -6789,7 +6789,7 @@ dependencies = [
 [[package]]
 name = "pallet-erc20-xcm-bridge"
 version = "1.0.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "environmental",
  "ethereum-types",
@@ -6834,7 +6834,7 @@ dependencies = [
 [[package]]
 name = "pallet-ethereum-xcm"
 version = "1.0.0-dev"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "ethereum",
  "ethereum-types",
@@ -6897,7 +6897,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-author-mapping"
 version = "0.2.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6918,7 +6918,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-balances-erc20"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -6941,7 +6941,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-batch"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "evm",
  "fp-evm",
@@ -6980,7 +6980,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-call-permit"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "evm",
  "fp-evm",
@@ -7003,7 +7003,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-collective"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "evm",
  "fp-evm",
@@ -7027,7 +7027,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-conviction-voting"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7047,7 +7047,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-crowdloan-rewards"
 version = "0.6.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7066,7 +7066,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-democracy"
 version = "0.2.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7099,7 +7099,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-gmp"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "cumulus-primitives-core",
  "evm",
@@ -7129,7 +7129,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-identity"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "enumflags2",
  "evm",
@@ -7159,7 +7159,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-parachain-staking"
 version = "1.0.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7181,7 +7181,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-preimage"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7201,7 +7201,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-proxy"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "evm",
  "fp-evm",
@@ -7223,7 +7223,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-randomness"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7244,7 +7244,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-referenda"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7264,7 +7264,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-registry"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7281,7 +7281,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-relay-encoder"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "cumulus-primitives-core",
  "fp-evm",
@@ -7304,13 +7304,13 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-relay-verifier"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "cumulus-primitives-core",
  "fp-evm",
  "frame-support",
  "frame-system",
- "moonbeam-runtime-common 0.8.0-dev (git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801)",
+ "moonbeam-runtime-common 0.8.0-dev (git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call)",
  "pallet-evm",
  "pallet-precompile-benchmarks",
  "pallet-relay-storage-roots",
@@ -7344,7 +7344,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-xcm-transactor"
 version = "0.2.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "cumulus-primitives-core",
  "evm",
@@ -7368,7 +7368,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-xcm-utils"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7390,7 +7390,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompile-xtokens"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7412,7 +7412,7 @@ dependencies = [
 [[package]]
 name = "pallet-evm-precompileset-assets-erc20"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "fp-evm",
  "frame-support",
@@ -7525,7 +7525,7 @@ dependencies = [
 [[package]]
 name = "pallet-moonbeam-lazy-migrations"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -7545,7 +7545,7 @@ dependencies = [
 [[package]]
 name = "pallet-moonbeam-orbiters"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -7577,7 +7577,7 @@ dependencies = [
 [[package]]
 name = "pallet-parachain-staking"
 version = "3.0.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "frame-benchmarking",
  "frame-support",
@@ -7596,7 +7596,7 @@ dependencies = [
 [[package]]
 name = "pallet-precompile-benchmarks"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "cumulus-primitives-core",
  "frame-benchmarking",
@@ -7645,7 +7645,7 @@ dependencies = [
 [[package]]
 name = "pallet-proxy-genesis-companion"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "frame-support",
  "frame-system",
@@ -7999,7 +7999,7 @@ dependencies = [
 [[package]]
 name = "pallet-xcm-transactor"
 version = "0.2.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "cumulus-primitives-core",
  "frame-benchmarking",
@@ -8657,7 +8657,7 @@ checksum = "5b40af805b3121feab8a3c29f04d8ad262fa8e0561883e7653e024ae4479e6de"
 [[package]]
 name = "precompile-utils"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "affix",
  "environmental",
@@ -8685,7 +8685,7 @@ dependencies = [
 [[package]]
 name = "precompile-utils-macro"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "case",
  "num_enum 0.5.11",
@@ -11668,7 +11668,7 @@ dependencies = [
 [[package]]
 name = "storage-proof-primitives"
 version = "0.1.0"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "cumulus-primitives-core",
  "frame-support",
@@ -13552,7 +13552,7 @@ dependencies = [
 [[package]]
 name = "xcm-primitives"
 version = "0.1.1"
-source = "git+https://github.com/moonbeam-foundation/moonbeam?rev=runtime-2801#1176bcef4c69edf78f216d0da625bdf56ba7c969"
+source = "git+https://github.com/moonbeam-foundation/moonbeam?branch=crystalin-2801-trace-call#fa861b08dec2385853ca4ff0765fd8d1c5539198"
 dependencies = [
  "cumulus-primitives-core",
  "ethereum",

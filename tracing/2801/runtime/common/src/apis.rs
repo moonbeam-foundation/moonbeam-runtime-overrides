@@ -240,6 +240,83 @@ macro_rules! impl_runtime_apis_plus_common {
 						"Missing `evm-tracing` compile time feature flag.",
 					))
 				}
+				
+				fn trace_call(
+					from: H160,
+					to: H160,
+					data: Vec<u8>,
+					value: U256,
+					gas_limit: U256,
+					max_fee_per_gas: Option<U256>,
+					max_priority_fee_per_gas: Option<U256>,
+					nonce: Option<U256>,
+					access_list: Option<Vec<(H160, Vec<H256>)>>,
+				) -> Result<(), sp_runtime::DispatchError> {
+					#[cfg(feature = "evm-tracing")]
+					{
+						use moonbeam_evm_tracer::tracer::EvmTracer;
+
+						let mut estimated_transaction_len = data.len() +
+							// to: 20
+							// from: 20
+							// value: 32
+							// gas_limit: 32
+							// nonce: 32
+							// 1 byte transaction action variant
+							// chain id 8 bytes
+							// 65 bytes signature
+							210;
+						if max_fee_per_gas.is_some() {
+							estimated_transaction_len += 32;
+						}
+						if max_priority_fee_per_gas.is_some() {
+							estimated_transaction_len += 32;
+						}
+						if access_list.is_some() {
+							estimated_transaction_len += access_list.encoded_size();
+						}
+
+						let gas_limit = gas_limit.min(u64::MAX.into()).low_u64();
+						let without_base_extrinsic_weight = true;
+
+						let (weight_limit, proof_size_base_cost) =
+							match <Runtime as pallet_evm::Config>::GasWeightMapping::gas_to_weight(
+								gas_limit,
+								without_base_extrinsic_weight
+							) {
+								weight_limit if weight_limit.proof_size() > 0 => {
+									(Some(weight_limit), Some(estimated_transaction_len as u64))
+								}
+								_ => (None, None),
+							};
+
+						EvmTracer::new().trace(|| {
+							let is_transactional = false;
+							let validate = true;
+							let _ = <Runtime as pallet_evm::Config>::Runner::call(
+								from,
+								to,
+								data,
+								value,
+								gas_limit,
+								max_fee_per_gas,
+								max_priority_fee_per_gas,
+								nonce,
+								access_list.unwrap_or_default(),
+								is_transactional,
+								validate,
+								weight_limit,
+								proof_size_base_cost,
+								<Runtime as pallet_evm::Config>::config(),
+							);
+						});
+						Ok(())
+					}
+					#[cfg(not(feature = "evm-tracing"))]
+					Err(sp_runtime::DispatchError::Other(
+						"Missing `evm-tracing` compile time feature flag.",
+					))
+				}
 			}
 
 			impl moonbeam_rpc_primitives_txpool::TxPoolRuntimeApi<Block> for Runtime {
