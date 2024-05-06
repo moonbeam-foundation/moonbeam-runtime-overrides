@@ -76,7 +76,12 @@ sp_api::decl_runtime_apis! {
 	}
 }
 
-#[cfg(all(not(feature = "before_700"), not(feature = "_700_to_1200"), not(feature = "runtime-2900")))]
+#[cfg(all(
+	not(feature = "before_700"),
+	not(feature = "_700_to_1200"),
+	not(feature = "runtime-2900"),
+	not(feature = "runtime-3000")
+))]
 sp_api::decl_runtime_apis! {
 	#[api_version(4)]
 	pub trait DebugRuntimeApi {
