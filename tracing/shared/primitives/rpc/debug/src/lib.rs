@@ -30,7 +30,7 @@ use sp_std::vec::Vec;
 
 #[cfg(feature = "runtime-3000")]
 sp_api::decl_runtime_apis! {
-	#[api_version(5)]
+	#[api_version(6)]
 	pub trait DebugRuntimeApi {
 		fn trace_transaction(
 			extrinsics: Vec<Block::Extrinsic>,
@@ -45,6 +45,7 @@ sp_api::decl_runtime_apis! {
 		) -> Result<(), sp_runtime::DispatchError>;
 
 		fn trace_call(
+			header: &Block::Header,
 			from: H160,
 			to: H160,
 			data: Vec<u8>,
