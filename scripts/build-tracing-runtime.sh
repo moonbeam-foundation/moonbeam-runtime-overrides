@@ -6,15 +6,12 @@ ALL_RUNTIMES_NAMES=(
     moonriver
     moonbeam
 )
-SRTOOL_IMAGE="paritytech/srtool:1.77.0"
+
 
 # Arguments
 VERSION=$1
 RUNTIME_NAME_FILTER=${2:-"[a-z]"}
 CARGO_BUILD_JOBS=${3:-"8"}
-
-# Download srtool image
-docker pull $SRTOOL_IMAGE
 
 # Copy the needed source code in a temporary folder
 mkdir -p tmp/build/tracing
@@ -22,6 +19,18 @@ cp -r tracing/${VERSION} tmp/build/tracing/${VERSION}
 cp -r tracing/shared  tmp/build/tracing/${VERSION}/shared
 cd tmp/build/tracing/${VERSION}
 chmod -R 777 runtime
+
+
+# get the toolchain rust version
+RUST_VERSION=$(cat rust-toolchain | grep channel | grep --only-matching --perl-regexp "(\d+\.){2}\d+")
+# if the version is empty, default to 1.69.0 (that is for runtime before 2300)
+if [ -z "$RUST_VERSION" ]; then
+  RUST_VERSION="1.69.0"
+fi
+SRTOOL_IMAGE="paritytech/srtool:$RUST_VERSION"
+
+# Download srtool image
+docker pull $SRTOOL_IMAGE
 
 for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
   RUNTIME_DIR="runtime/$RUNTIME_NAME"
