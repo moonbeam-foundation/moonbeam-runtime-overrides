@@ -22,7 +22,7 @@ chmod -R 777 runtime
 
 
 # get the toolchain rust version
-RUST_VERSION=$(cat rust-toolchain | grep channel | grep --only-matching --perl-regexp "(\d+\.){2}\d+")
+RUST_VERSION=$(cat rust-toolchain | grep channel | grep --only-matching -E "(\d+\.){2}\d+")
 # if the version is empty, default to 1.69.0 (that is for runtime before 2300)
 if [ -z "$RUST_VERSION" ]; then
   RUST_VERSION="1.69.0"
@@ -45,6 +45,7 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
         CMD="docker run \
           -i \
           --rm \
+          --platform linux/amd64 \
           -e PACKAGE=$RUNTIME_NAME-runtime \
           -e RUNTIME_DIR=$RUNTIME_DIR \
           -e WASM_BUILD_STD=0 \
