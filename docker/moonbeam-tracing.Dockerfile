@@ -7,8 +7,8 @@ FROM docker.io/library/ubuntu:20.04 AS builder
 RUN apt-get update && apt-get install -y ca-certificates && update-ca-certificates
 
 FROM debian:bookworm-slim
-LABEL maintainer "alan@purestake.com"
-LABEL description="Binary for Moonbeam Collator"
+LABEL maintainer="alan@moonsonglabs.com"
+LABEL description="Binary for Moonbeam Tracing Nodes"
 
 RUN useradd -m -u 1000 -U -s /bin/sh -d /moonbeam moonbeam && \
 	mkdir -p /moonbeam/.local/share && \
