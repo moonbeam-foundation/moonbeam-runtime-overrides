@@ -39,7 +39,7 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
       echo "Build $RUNTIME_NAME-${VERSION}-substitute-tracing…"
 
       if [[ "$VERSION" == "local" ]]; then
-        cargo build -p $RUNTIME_NAME-runtime --features on-chain-release-build
+        cargo build -p $RUNTIME_NAME-runtime
         cp target/debug/wbuild/$RUNTIME_NAME-runtime/${RUNTIME_NAME}_runtime.wasm ../../../../wasm/$RUNTIME_NAME-runtime-$VERSION-substitute-tracing.wasm
       else
         CMD="docker run \
@@ -50,7 +50,7 @@ for RUNTIME_NAME in ${ALL_RUNTIMES_NAMES[@]}; do
           -e RUNTIME_DIR=$RUNTIME_DIR \
           -e WASM_BUILD_STD=0 \
           -e CARGO_BUILD_JOBS=$CARGO_BUILD_JOBS \
-          -e BUILD_OPTS=--features=on-chain-release-build \
+          -e BUILD_OPTS=--features=metadata-hash \
           -v $PWD:/build \
           $SRTOOL_IMAGE build --app --json -cM"
 
