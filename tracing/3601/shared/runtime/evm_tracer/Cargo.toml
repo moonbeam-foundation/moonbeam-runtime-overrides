@@ -12,8 +12,10 @@ version = "0.1.0"
 # Each version of the runtime will patch the Subtrate and Frontier dependencies to the correct
 # git repo and branch. Since cargo don't want to patch with the same repo url, we use a dummy fork
 # not used in the runtimes.
+environmental = { workspace = true }
 
 # Moonbeam
+xcm-primitives = { workspace = true }
 evm-tracing-events = { workspace = true, features = [ "evm-tracing" ] }
 moonbeam-primitives-ext = { workspace = true }
 
@@ -26,7 +28,7 @@ sp-std = { workspace = true }
 
 # Frontier
 ethereum-types = { workspace = true }
-evm = { workspace = true, features = [ "with-codec" ] }
+evm = { workspace = true }
 evm-gasometer = { workspace = true }
 evm-runtime = { workspace = true }
 fp-evm = { workspace = true }
@@ -48,4 +50,6 @@ std = [
 	"sp-core/std",
 	"sp-runtime/std",
 	"sp-std/std",
+	"xcm-primitives/std",
+	"environmental/std"
 ]

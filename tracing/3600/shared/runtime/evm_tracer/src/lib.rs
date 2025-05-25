@@ -1,4 +1,4 @@
-// Copyright 2019-2022 PureStake Inc.
+// Copyright 2019-2025 PureStake Inc.
 // This file is part of Moonbeam.
 
 // Moonbeam is free software: you can redistribute it and/or modify
@@ -31,7 +31,30 @@ pub mod tracer {
 	use evm::tracing::{using as evm_using, EventListener as EvmListener};
 	use evm_gasometer::tracing::{using as gasometer_using, EventListener as GasometerListener};
 	use evm_runtime::tracing::{using as runtime_using, EventListener as RuntimeListener};
+	use sp_runtime::DispatchError;
 	use sp_std::{cell::RefCell, rc::Rc};
+	use xcm_primitives::EthereumXcmTracingStatus;
+
+	environmental::environmental!(ETHEREUM_TRACING_STATUS: EthereumXcmTracingStatus);
+
+	pub struct EthereumTracingStatus;
+
+	impl EthereumTracingStatus {
+		pub fn wrap(
+			init: EthereumXcmTracingStatus,
+			func: impl FnOnce() -> Result<(), DispatchError>,
+		) -> Result<(), DispatchError> {
+			ETHEREUM_TRACING_STATUS::using(&mut init.clone(), func)
+		}
+
+		pub fn state() -> Option<EthereumXcmTracingStatus> {
+			ETHEREUM_TRACING_STATUS::with(|state| state.clone())
+		}
+
+		pub fn update(status: EthereumXcmTracingStatus) {
+			ETHEREUM_TRACING_STATUS::with(|state| *state = status);
+		}
+	}
 
 	struct ListenerProxy<T>(pub Rc<RefCell<T>>);
 	impl<T: GasometerListener> GasometerListener for ListenerProxy<T> {
