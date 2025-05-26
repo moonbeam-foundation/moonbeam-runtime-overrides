@@ -33,17 +33,17 @@ struct Args {
 	repo: String,
 }
 
-const SHARED_PATH: [&str; 4] = [
+const SHARED_PATH: [&str; 3] = [
 	"primitives/rpc/evm-tracing-events",
-	"runtime/evm_tracer",
 	"primitives/rpc/debug",
 	"primitives/ext",
 ];
-const LOCAL_PATH: [&str; 4] = [
+const LOCAL_PATH: [&str; 5] = [
 	"runtime/moonbeam",
 	"runtime/moonriver",
 	"runtime/moonbase",
 	"runtime/common",
+	"runtime/evm_tracer",
 ];
 
 fn main() {
