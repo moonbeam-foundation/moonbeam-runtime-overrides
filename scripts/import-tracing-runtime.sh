@@ -28,11 +28,11 @@ mkdir -p tracing/$SPEC_VERSION/runtime
 cp $MOONBEAM_PATH/Cargo.toml tracing/$SPEC_VERSION/Cargo.toml
 cp $MOONBEAM_PATH/Cargo.lock tracing/$SPEC_VERSION/Cargo.lock
 cp $MOONBEAM_PATH/rust-toolchain tracing/$SPEC_VERSION/rust-toolchain
-cp -r $MOONBEAM_PATH/runtime/common tracing/$SPEC_VERSION/runtime/
-cp -r $MOONBEAM_PATH/runtime/moon* tracing/$SPEC_VERSION/runtime/
+cp -r $MOONBEAM_PATH/runtime/* tracing/$SPEC_VERSION/runtime/
 
 # Remove irrelevant files
 rm -rf tracing/$SPEC_VERSION/runtime/relay-encoder
+rm -rf tracing/$SPEC_VERSION/runtime/summarize-precompile-checks
 
 echo "Run migration script"
 cd scripts
