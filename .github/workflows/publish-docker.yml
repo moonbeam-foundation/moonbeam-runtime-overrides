@@ -100,7 +100,7 @@ jobs:
       - name: Build and push moonbeam-tracing
         id: docker_build
         if: ${{ steps.check-docker-image.outputs.image_exists }} == false
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: ./docker/moonbeam-tracing.Dockerfile
