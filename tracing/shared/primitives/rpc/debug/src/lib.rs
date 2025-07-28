@@ -19,18 +19,18 @@
 use parity_scale_codec::{Decode, Encode};
 
 #[cfg(feature = "before_700")]
-use ethereum::Transaction as Transaction;
+use ethereum::Transaction;
 #[cfg(feature = "_700_to_1200")]
 use ethereum::TransactionV0 as Transaction;
 #[cfg(all(not(feature = "before_700"), not(feature = "_700_to_1200")))]
-use ethereum::TransactionV2 as Transaction;
+use ethereum::{TransactionV3 as Transaction, AuthorizationList};
 
 use ethereum_types::{H160, H256, U256};
 use sp_std::vec::Vec;
 
 #[cfg(feature = "runtime-3000")]
 sp_api::decl_runtime_apis! {
-	#[api_version(6)]
+	#[api_version(7)]
 	pub trait DebugRuntimeApi {
 		fn trace_transaction(
 			extrinsics: Vec<Block::Extrinsic>,
@@ -55,7 +55,8 @@ sp_api::decl_runtime_apis! {
 			max_priority_fee_per_gas: Option<U256>,
 			nonce: Option<U256>,
 			access_list: Option<Vec<(H160, Vec<H256>)>>,
-		) -> Result<(), sp_runtime::DispatchError>;		
+			authorization_list: Option<AuthorizationList>,
+		) -> Result<(), sp_runtime::DispatchError>;
 	}
 }
 
