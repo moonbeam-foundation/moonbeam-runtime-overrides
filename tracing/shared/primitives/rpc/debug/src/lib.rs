@@ -22,11 +22,46 @@ use parity_scale_codec::{Decode, Encode};
 use ethereum::Transaction as Transaction;
 #[cfg(feature = "_700_to_1200")]
 use ethereum::TransactionV0 as Transaction;
-#[cfg(all(not(feature = "before_700"), not(feature = "_700_to_1200")))]
+#[cfg(feature = "runtime-3000")]
 use ethereum::TransactionV2 as Transaction;
+#[cfg(all(not(feature = "before_700"), not(feature = "_700_to_1200"), not(feature = "runtime-3000")))]
+use ethereum::{TransactionV3 as Transaction, AuthorizationList};
 
 use ethereum_types::{H160, H256, U256};
 use sp_std::vec::Vec;
+
+
+#[cfg(feature = "runtime-3900")]
+sp_api::decl_runtime_apis! {
+	#[api_version(7)]
+	pub trait DebugRuntimeApi {
+		fn trace_transaction(
+			extrinsics: Vec<Block::Extrinsic>,
+			transaction: &Transaction,
+			header: &Block::Header,
+		) -> Result<(), sp_runtime::DispatchError>;
+
+		fn trace_block(
+			extrinsics: Vec<Block::Extrinsic>,
+			known_transactions: Vec<H256>,
+			header: &Block::Header,
+		) -> Result<(), sp_runtime::DispatchError>;
+
+		fn trace_call(
+			header: &Block::Header,
+			from: H160,
+			to: H160,
+			data: Vec<u8>,
+			value: U256,
+			gas_limit: U256,
+			max_fee_per_gas: Option<U256>,
+			max_priority_fee_per_gas: Option<U256>,
+			nonce: Option<U256>,
+			access_list: Option<Vec<(H160, Vec<H256>)>>,
+			authorization_list: Option<AuthorizationList>,
+		) -> Result<(), sp_runtime::DispatchError>;
+	}
+}
 
 #[cfg(feature = "runtime-3000")]
 sp_api::decl_runtime_apis! {
