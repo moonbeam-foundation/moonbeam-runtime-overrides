@@ -1,6 +1,6 @@
 [package]
 name = "moonbeam-rpc-primitives-debug"
-authors = [ "PureStake" ]
+authors = ["PureStake"]
 edition = "2018"
 homepage = "https://moonbeam.network"
 license = "GPL-3.0-only"
@@ -9,10 +9,10 @@ version = "0.1.0"
 
 [dependencies]
 environmental = { workspace = true }
-ethereum = { workspace = true, features = [ "with-scale" ] }
+ethereum = { workspace = true, features = ["with-scale"] }
 ethereum-types = { workspace = true }
-hex = { workspace = true, optional = true, features = [ "serde" ] }
-serde = { workspace = true, optional = true, features = [ "derive" ] }
+hex = { workspace = true, optional = true, features = ["serde"] }
+serde = { workspace = true, optional = true, features = ["derive"] }
 
 # Substrate
 parity-scale-codec = { workspace = true }
@@ -23,12 +23,13 @@ sp-runtime = { workspace = true }
 sp-std = { workspace = true }
 
 [features]
-default = [ "std" ]
+default = ["std"]
 
 before_700 = []
 _700_to_1200 = []
 runtime-2900 = []
 runtime-3000 = []
+runtime-3900 = []
 
 std = [
 	"parity-scale-codec/std",
