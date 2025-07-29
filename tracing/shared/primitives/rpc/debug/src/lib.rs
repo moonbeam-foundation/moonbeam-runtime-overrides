@@ -116,7 +116,8 @@ sp_api::decl_runtime_apis! {
 	not(feature = "before_700"),
 	not(feature = "_700_to_1200"),
 	not(feature = "runtime-2900"),
-	not(feature = "runtime-3000")
+	not(feature = "runtime-3000"),
+	not(feature = "runtime-3900")
 ))]
 sp_api::decl_runtime_apis! {
 	#[api_version(4)]
