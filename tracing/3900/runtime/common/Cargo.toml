@@ -1,0 +1,83 @@
+[package]
+authors = { workspace = true }
+description = "Common code shared between runtimes"
+edition = "2021"
+homepage = "https://moonbeam.network"
+license = "GPL-3.0-only"
+name = "moonbeam-runtime-common"
+version = "0.8.0-dev"
+
+[dependencies]
+log = "0.4"
+
+# Moonbeam
+ethereum = { workspace = true }
+moonbeam-core-primitives = { workspace = true }
+pallet-migrations = { workspace = true }
+pallet-moonbeam-foreign-assets = { workspace = true }
+pallet-xcm-weight-trader = { workspace = true }
+
+# Substrate
+pallet-message-queue = { workspace = true }
+pallet-xcm-bridge = { workspace = true }
+frame-support = { workspace = true }
+frame-system = { workspace = true }
+pallet-balances = { workspace = true }
+pallet-treasury = { workspace = true }
+pallet-xcm = { workspace = true }
+sp-core = { workspace = true }
+sp-runtime = { workspace = true }
+sp-std = { workspace = true }
+sp-io = { workspace = true }
+
+# Moonkit
+pallet-author-inherent = { workspace = true }
+
+# Polkadot
+xcm = { workspace = true }
+xcm-builder = { workspace = true }
+
+# Parity
+parity-scale-codec = { workspace = true }
+scale-info = { workspace = true }
+
+account = { workspace = true }
+
+# Cumulus
+cumulus-pallet-parachain-system = { workspace = true }
+cumulus-primitives-core = { workspace = true, default-features = false }
+
+[features]
+std = [
+	"cumulus-pallet-parachain-system/std",
+	"ethereum/std",
+	"frame-support/std",
+	"moonbeam-core-primitives/std",
+	"pallet-author-inherent/std",
+	"pallet-migrations/std",
+	"pallet-xcm-weight-trader/std",
+	"pallet-message-queue/std",
+	"parity-scale-codec/std",
+	"scale-info/std",
+	"sp-core/std",
+	"sp-runtime/std",
+	"sp-std/std",
+	"sp-io/std",
+	"cumulus-primitives-core/std",
+	"xcm/std",
+	"account/std",
+]
+runtime-benchmarks = [
+	"cumulus-primitives-core/runtime-benchmarks",
+	"cumulus-pallet-parachain-system/runtime-benchmarks",
+	"pallet-message-queue/runtime-benchmarks",
+	"pallet-author-inherent/runtime-benchmarks",
+	"pallet-balances/runtime-benchmarks",
+	"pallet-treasury/runtime-benchmarks",
+	"pallet-xcm/runtime-benchmarks",
+]
+try-runtime = [
+	"cumulus-pallet-parachain-system/try-runtime",
+	"frame-support/try-runtime",
+	"pallet-migrations/try-runtime",
+]
