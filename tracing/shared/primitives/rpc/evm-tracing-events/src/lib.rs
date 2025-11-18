@@ -43,7 +43,6 @@ use ::evm::Opcode;
 use alloc::vec::Vec;
 use parity_scale_codec::{Decode, Encode};
 use ethereum_types::{H160, U256};
-use sp_runtime_interface::pass_by::PassByCodec;
 
 environmental::environmental!(listener: dyn Listener + 'static);
 
@@ -54,7 +53,7 @@ pub fn using<R, F: FnOnce() -> R>(l: &mut (dyn Listener + 'static), f: F) -> R {
 /// Allow to configure which data of the Step event
 /// we want to keep or discard. Not discarding the data requires cloning the data
 /// in the runtime which have a significant cost for each step.
-#[derive(Clone, Copy, Eq, PartialEq, Debug, Encode, Decode, Default, PassByCodec)]
+#[derive(Clone, Copy, Eq, PartialEq, Debug, Encode, Decode, Default)]
 pub struct StepEventFilter {
 	pub enable_stack: bool,
 	pub enable_memory: bool,
