@@ -9,7 +9,6 @@ repository = 'https://github.com/PureStake/moonbeam/'
 
 [dependencies]
 parity-scale-codec = { workspace = true }
-sp-runtime-interface = { workspace = true }
 
 ethereum = { workspace = true, features = ["with-scale"] }
 ethereum-types = { workspace = true }
