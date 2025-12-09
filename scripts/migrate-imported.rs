@@ -172,15 +172,46 @@ fn update_runtime_toml(path: &Path) {
 	let mut toml = toml.parse::<Document>().expect("invalid runtime toml file");
 
 	println!("- Enabling evm-tracing feature in {}", path.display());
-	let Some(Item::Table(features)) = toml.get_mut("features") else {
-		panic!("cannot get features table");
+	if let Some(Item::Table(features)) = toml.get_mut("features") {
+		if let Some(Item::Value(Value::Array(default_features))) = features.get_mut("default") {
+			default_features.push("evm-tracing");
+		};
 	};
-	let Some(Item::Value(Value::Array(default_features))) = features.get_mut("default") else {
-		panic!("cannot get default features array");
-	};
-	default_features.push("evm-tracing");
 
 	println!("- Removing dev-dependencies in {}", path.display());
+
+	// Collect dev-dependency names
+	let dev_dependencies: Vec<String> = toml
+		.get("dev-dependencies")
+		.and_then(|item| item.as_table())
+		.map(|dev_deps| dev_deps.iter().map(|(name, _)| name.to_string()).collect())
+		.unwrap_or_default();
+
+	// Remove features that reference dev-dependencies
+	if let Some(Item::Table(features)) = toml.get_mut("features") {
+		for (_feature_name, feature_table) in features.iter_mut() {
+			if let Item::Value(Value::Array(feature_array)) = feature_table {
+				let mut indices_to_remove: Vec<usize> = feature_array
+					.iter()
+					.enumerate()
+					.filter_map(|(i, feat)| {
+						let feat_value = feat.as_str()?;
+
+						// Check if this feature references a dev dependency
+						dev_dependencies.iter().any(|dev_dep| {
+							feat_value.starts_with(&format!("{}/", dev_dep))
+								|| feat_value.starts_with(&format!("{}?/", dev_dep))
+						})
+						.then_some(i)
+					})
+					.collect();
+
+				while let Some(index) = indices_to_remove.pop() {
+					feature_array.remove(index);
+				}
+			}
+		}
+	}
 	toml.remove("dev-dependencies");
 
 	std::fs::write(&path, toml.to_string()).expect("cannot write updated toml");
