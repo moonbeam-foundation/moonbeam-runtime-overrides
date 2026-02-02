@@ -1,0 +1,33 @@
+[package]
+name = "moonbeam-primitives-ext"
+version = '0.1.0'
+authors = ['PureStake']
+edition = '2018'
+homepage = 'https://moonbeam.network'
+license = 'GPL-3.0-only'
+repository = 'https://github.com/PureStake/moonbeam/'
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ethereum-types = { workspace = true }
+
+# Moonbeam
+evm-tracing-events = { workspace = true }
+
+# Substrate
+parity-scale-codec = { workspace = true }
+sp-runtime-interface = { workspace = true }
+sp-externalities = { workspace = true }
+sp-std = { workspace = true }
+
+[features]
+default = ["std"]
+std = [
+	"parity-scale-codec/std",
+	"ethereum-types/std",
+	"evm-tracing-events/std",
+	"sp-runtime-interface/std",
+	"sp-externalities/std",
+	"sp-std/std",
+]
