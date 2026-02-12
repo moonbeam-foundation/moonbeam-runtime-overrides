@@ -14,7 +14,7 @@ jobs:
   create-tracing-runtime:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: import runtime
         run: |
           ./scripts/import-tracing-runtime.sh ${{ github.event.inputs.spec_version }} ${{ github.event.inputs.moonbeam_git_ref }}

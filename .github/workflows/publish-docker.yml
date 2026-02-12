@@ -18,7 +18,7 @@ jobs:
       sha: ${{ steps.get-sha.outputs.sha }}
       sha4: ${{ steps.get-sha.outputs.sha4 }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.inputs.overrides_branch }}
       - name: Get Sha
