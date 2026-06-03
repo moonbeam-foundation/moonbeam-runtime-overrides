@@ -4,7 +4,7 @@ This repository contains rewrites of the moonbeam project runtimes, these rewrit
 
 ## Tracing
 
-The moonbeam tracing nodes allow to trace the execution of ethereum transactions via specific RPC requests. This requires special features on the runtime side, which are only present in runtimes modified for tracing, called "tracing runtime".
+The moonbeam tracing nodes allow tracing the execution of ethereum transactions via specific RPC requests. This requires special features on the runtime side, which are only present in runtimes modified for tracing, called "tracing runtime".
 
 The tracing runtimes code is in the `tracing` folder of this git repository. All past spec versions of the runtime are rewritten, each in the subfolder `tracing/XXX` where `XXX` is the spec version number.
 
